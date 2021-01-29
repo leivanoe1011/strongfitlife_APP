@@ -14,10 +14,16 @@ function NavBar() {
         className="navbar navbar-expand-lg navbar-dark sticky-top"
         style={{ backgroundColor: "black"}}
       >
+
+        <Link className="nav-link text-light deskHome d-none d-lg-block" to="/">
+          Home
+        </Link>
+
+
         <Link className="navbar-brand" to="/">
           <img
             style={{ width: 125 }}
-            className="d-none d-lg-block"
+            className="d-none d-sm-block"
             src={Logo}
             alt="Strong fit life logo"
           />
@@ -47,6 +53,10 @@ function NavBar() {
           <ul className="navbar-nav">
             <LeftNav />
           </ul>
+
+          <Link to="/">
+            <img style={{ width: 125 }} className="d-none d-lg-block" src={Logo} />
+          </Link>
 
           <ul className="navbar-nav">
             <RightNav />
