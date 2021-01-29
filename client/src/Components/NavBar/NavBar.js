@@ -5,7 +5,8 @@ import Logo from "../../images/StrongLifeLogo.png";
 import LeftNav from "./LeftNavContent";
 import RightNav from "./RightNavContent";
 
-import MobileLogo from "../../images/StrongLifeLogo.png";
+// import MobileLogo from "../../images/StrongLifeLogo.png";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function NavBar() {
   return (
@@ -15,23 +16,27 @@ function NavBar() {
         style={{ backgroundColor: "black"}}
       >
 
-        <Link className="nav-link text-light deskHome d-none d-lg-block" to="/">
+        {/* Only display in large screen */}
+        {/* <Link className="nav-link text-light deskHome d-none d-lg-block" to="/"> */}
+        <Link className="nav-link text-light d-none d-lg-block" to="/">
           Home
         </Link>
 
-
+         {/* Only display in medium and small screen */}
         <Link className="navbar-brand" to="/">
           <img
             style={{ width: 125 }}
-            className="d-none d-sm-block"
+            className="d-lg-none"
             src={Logo}
             alt="Strong fit life logo"
           />
         </Link>
 
+
+        {/* 
         <Link className="mobileBrand" to="/">
           <img height="50px" width="50px" src={MobileLogo} alt="mobile logo"></img>
-        </Link>
+        </Link> */}
 
         <button
           className="navbar-toggler justify-content-end"
@@ -55,7 +60,7 @@ function NavBar() {
           </ul>
 
           <Link to="/">
-            <img style={{ width: 125 }} className="d-none d-lg-block" src={Logo} />
+            <img style={{ width: 125 }} className="midNavLogo d-sm-none d-md-none d-lg-block" src={Logo} />
           </Link>
 
           <ul className="navbar-nav">

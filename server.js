@@ -8,6 +8,8 @@ const mongoose = require("mongoose");
 // Here we determine the environment
 const config = require("./config/key");
 
+const jwt = require("jwt-then");
+
 
 // Connect to the Mongoose server
 // The database connection lives in the ENV file
@@ -48,9 +50,6 @@ const io = require("socket.io")(server, {
     methods: ["GET", "POST", "PUT"]
   }
 });
-
-
-const jwt = require("jwt-then");
 
 
 const Message = mongoose.model("Message");

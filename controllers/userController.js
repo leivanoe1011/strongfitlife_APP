@@ -69,7 +69,7 @@ exports.register = async (req, res) => {
   
   // The handler is expecting an ASYNC function so we 
   // have to make the funtion below ASYNC
-  exports.login = async (req, res) => {
+  exports.slogin = async (req, res) => {
     
     const { email, password } = req.body.user;
 
