@@ -28,8 +28,6 @@ export default ({children}) => {
     }
 
 
-    console.log(socketIoPort);
-
     // Once the user is logged in, then they go to the Local Storage 
     // And grab the Token
     // This Function is executed when the Setup Socket function is returned
@@ -47,7 +45,6 @@ export default ({children}) => {
         // Need to validate is not "Undefined"
         if (storageToken && storageToken != undefined && !socket) {
 
-            console.log(storageToken);
 
             // Connect to the server and validate the token
             // This will go to the function in the Server where we are 
