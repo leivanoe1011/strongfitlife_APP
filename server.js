@@ -40,12 +40,6 @@ require("./models/Message");
 // Bring in the Express Server
 const app = require("./app");
 
-
-//Setup Cross Origin
-// This will prevent LOCALHOST calls errors
-app.use(require("cors")());
-
-
 const PORT = process.env.PORT || 8000;
 
 const server = app.listen(PORT, () => {
@@ -55,7 +49,7 @@ const server = app.listen(PORT, () => {
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://strongfitlife-app.herokuapp.com/",
+    origin : config.socketIoPort,
     methods: ["GET", "POST"]
   }
 });

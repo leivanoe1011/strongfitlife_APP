@@ -1,10 +1,10 @@
 
-
 import React, { createContext, useState, useEffect } from 'react';
 
 // import AuthService from "../setupTests/AuthService";
 import io from "socket.io-client";
 import makeToast from "../Toaster";
+
 
 export const AuthContext = createContext();
 
@@ -15,6 +15,20 @@ export default ({children}) => {
     const [userId, setUserId] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [role, setRole] = useState("");
+
+    var socketIoPort = "";
+
+    // const configObj = dotenv.config.Scopes;
+
+    if(process.env.NODE_ENV === "production"){
+        socketIoPort="https://strongfitlife-app.herokuapp.com/"
+    }
+    else{
+        socketIoPort="http://localhost:3000"
+    }
+
+
+    console.log(socketIoPort);
 
     // Once the user is logged in, then they go to the Local Storage 
     // And grab the Token
@@ -31,7 +45,7 @@ export default ({children}) => {
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
-        if (storageToken && !socket) {
+        if (storageToken && storageToken != undefined && !socket) {
 
             console.log(storageToken);
 
@@ -39,11 +53,10 @@ export default ({children}) => {
             // This will go to the function in the Server where we are 
             // Initializing the IO middleware
             // Below passing the token in the local Storage to the Server and validate
-            // const newSocket = io("http://localhost:8000", {
-            const newSocket = io("https://strongfitlife-app.herokuapp.com/", {
+            const newSocket = io(socketIoPort, {
                 query: {
-                    token: localStorage.getItem("CC_Token"),
-                    role: localStorage.getItem("CC_role")
+                    token: storageToken,
+                    role: storageRole
                 },
             });
 
@@ -79,6 +92,7 @@ export default ({children}) => {
 
     // When the page loads, this gets Executed first
     useEffect(() => {
+
         setupSocket();
         //eslint-disable-next-line
     }, []);

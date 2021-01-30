@@ -18,6 +18,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 
+//Setup Cross Origin
+// This will prevent LOCALHOST calls errors
+app.use(require("cors")());
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'client/build')));
