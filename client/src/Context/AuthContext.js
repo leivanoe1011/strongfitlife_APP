@@ -24,22 +24,24 @@ export default ({children}) => {
         
         // If the token does not currently live in the Local Storage
         // We get a new token
-        const token = localStorage.getItem("CC_Token"); 
+        const storageToken = localStorage.getItem("CC_Token"); 
 
-        const role = localStorage.getItem("CC_role");
+        const storageRole = localStorage.getItem("CC_role");
 
 
         // If token exists and Socket is NULL
-        if (token && !socket) {
+        if (storageToken && !socket) {
+
+            console.log(storageToken);
 
             // Connect to the server and validate the token
             // This will go to the function in the Server where we are 
             // Initializing the IO middleware
             // Below passing the token in the local Storage to the Server and validate
-            const newSocket = io("http://localhost:8000", {
+            const newSocket = io("http://localhost:3000", {
                 query: {
-                    token: localStorage.getItem("CC_Token"),
-                    role: localStorage.getItem("CC_role")
+                    token: storageToken,
+                    role: storageRole
                 },
             });
 

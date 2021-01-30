@@ -69,6 +69,8 @@ io.use(async (socket, next) => {
         // socket.handshake.query currently allows data to be set on "connect"
         const token = socket.handshake.query.token;
 
+        console.log(token);
+
         // validate the token is correct
         const payload = await jwt.verify(token, process.env.SECRET);
 
