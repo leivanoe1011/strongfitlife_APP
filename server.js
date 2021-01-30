@@ -37,7 +37,7 @@ require("./models/Message");
 // Bring in the Express Server
 const app = require("./app");
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 8000;
 
 const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
@@ -47,7 +47,7 @@ const server = app.listen(PORT, () => {
 const io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT"]
+    methods: ["GET", "POST"]
   }
 });
 

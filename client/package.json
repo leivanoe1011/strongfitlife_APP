@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
@@ -11,6 +12,7 @@
     "bootstrap": "^4.6.0",
     "graphql": "^15.5.0",
     "jquery": "^3.5.1",
+    "mongoose": "^5.11.14",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
     "react-bootstrap-validation": "^0.1.11",

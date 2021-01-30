@@ -30,6 +30,7 @@ export default ({children}) => {
 
 
         // If token exists and Socket is NULL
+        // Need to validate is not "Undefined"
         if (storageToken && !socket) {
 
             console.log(storageToken);
