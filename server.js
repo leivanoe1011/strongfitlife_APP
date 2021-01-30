@@ -18,6 +18,8 @@ mongoose.connect(config.mongoURI, {
     useNewUrlParser: true,
   });
   
+
+
   // Record Mongoose Error
   mongoose.connection.on("error", (err) => {
     console.log("Mongoose Connection ERROR: " + err.message);
@@ -34,8 +36,15 @@ require("./models/Chatroom");
 require("./models/Message");
 
 
+
 // Bring in the Express Server
 const app = require("./app");
+
+
+//Setup Cross Origin
+// This will prevent LOCALHOST calls errors
+app.use(require("cors")());
+
 
 const PORT = process.env.PORT || 8000;
 

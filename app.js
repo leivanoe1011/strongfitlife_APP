@@ -17,16 +17,16 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 
-//Setup Cross Origin
-// This will prevent LOCALHOST calls errors
-app.use(require("cors")());
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, 'client/build')));
 }
 
+// Handle localhost 3000 404 error
+app.get('*', function(req, res){
+    res.sendFile(__dirname+'/client/public/index.html'); // change the path to your index.html
+});
 
 
 app.use("/user", require("./routes/user"));
