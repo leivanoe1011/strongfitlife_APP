@@ -88,7 +88,7 @@ function Login (props) {
                       ref={passwordRef} />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={loginUser}>
               Submit
               </Button>
           </Form>

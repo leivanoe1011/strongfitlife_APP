@@ -26,6 +26,14 @@ function LeftNav() {
             CONTACT
           </Link>
         </li>
+
+        <li className="nav-item">
+          <Link className="nav-link" to="/login">
+            LOGIN
+          </Link>
+        </li>
+
+        
         <li className="nav-item ml-4">
           {/* <Link className="nav-link" to="/#contact">BOOK A CALL</Link> */}
           <button className="bookCall">BOOK A CALL</button>
