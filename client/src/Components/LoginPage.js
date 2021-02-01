@@ -3,13 +3,12 @@ import React, { useContext } from "react";
 import AuthService from "../Services/AuthService";
 import makeToast from "../Toaster";
 import { AuthContext } from "../Context/AuthContext";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 const LoginPage = (props) => {
-
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
 
@@ -19,105 +18,81 @@ const LoginPage = (props) => {
   const authContext = useContext(AuthContext);
   const { setUserId, setRole } = useContext(AuthContext);
 
- 
   const loginUser = (e) => {
+    e.preventDefault();
 
-      e.preventDefault();
+    const user = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
 
+    AuthService.login(user).then((response) => {
+      const { message, token, role, userId } = response;
 
-      const user = {
-          email : emailRef.current.value,
-          password : passwordRef.current.value
-      }
+      makeToast("success", message);
 
-      AuthService.login(user)
-      .then((response) => {
+      // Here we load the Token to the Local Storage
+      // The App JS will get the Token
+      localStorage.setItem("CC_Token", token);
 
-          const { message, token, role, userId } = response;
+      localStorage.setItem("CC_role", role);
 
-          makeToast("success", message);
+      setUserId(userId);
 
-          // Here we load the Token to the Local Storage
-          // The App JS will get the Token
-          localStorage.setItem("CC_Token", token);
+      setRole(role);
 
-          localStorage.setItem("CC_role", role);
+      // localStorage.setItem("User_Role", response.data.role);
 
-          setUserId(userId);
+      // Call the setup Socket function from the APP.JS
+      // This will get the Token stored above in the Local Storage
+      authContext.setupSocket();
 
-          setRole(role);
+      // After user is logged in, we load the Dashboard page
+      // This is possible with the withRouter React Function at the end
+      props.history.push("/dashboard");
+    });
+  };
 
-          // localStorage.setItem("User_Role", response.data.role);
-
-          // Call the setup Socket function from the APP.JS
-          // This will get the Token stored above in the Local Storage
-          authContext.setupSocket();
-
-
-          // After user is logged in, we load the Dashboard page
-          // This is possible with the withRouter React Function at the end
-          props.history.push("/dashboard");
-      })
-
-  }
-
-
-  return( 
-    <div className="d-flex justify-content-center" style={{ padding : 25}}>
-    
-        <Card  style={{ width: '18rem' }}>
+  return (
+    <div style={{minHeight: "100vh"}}>
+      <div className="d-flex justify-content-center" style={{ padding: 25 }}>
+        <Card style={{ width: "18rem" }}>
           <Card.Body>
-            
             <Form>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control 
-                        type="email" 
-                        placeholder="Enter email"  
-                        ref={emailRef}/>
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  ref={emailRef}
+                />
+                <Form.Text className="text-muted">
+                  We'll never share your email with anyone else.
+                </Form.Text>
+              </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control  
-                        type="password" 
-                        placeholder="Password" 
-                        ref={passwordRef} />
-                </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Password"
+                  ref={passwordRef}
+                />
+              </Form.Group>
 
-                <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit">
                 Submit
-                </Button>
+              </Button>
             </Form>
-
-        </Card.Body>
-
-    </Card>
-    
+          </Card.Body>
+        </Card>
+      </div>
     </div>
   );
-
 };
 
-// You can get access to the history object's properties and 
-// the closest <Route>'s match via the withRouter 
-// higher-order component. withRouter will pass updated match, 
+// You can get access to the history object's properties and
+// the closest <Route>'s match via the withRouter
+// higher-order component. withRouter will pass updated match,
 // location, and history props to the wrapped component whenever it renders
 export default withRouter(LoginPage);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
