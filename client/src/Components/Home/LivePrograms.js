@@ -9,7 +9,6 @@ import Card from "react-bootstrap/Card";
 
 function LivePrograms() {
   return (
-    
     <Container>
       <Row className="mb-5">
         <div className="text-center mt-4 mb-4">
