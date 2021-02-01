@@ -8,6 +8,8 @@ import Header from "./IndexHeader";
 
 import { AuthContext } from "../../Context/AuthContext";
 import Testimonials from "./Testimonials";
+import ContactForm from "./ContactForm";
+import BlogUpdates from "./BlogUpdates";
 // const { isAuthenticated } = useContext(AuthContext);
 
 function MainBody(props) {
@@ -32,6 +34,8 @@ function MainBody(props) {
       <Questions />
       <LivePrograms />
       <Testimonials />
+      <ContactForm />
+      <BlogUpdates />
     </>
   );
 }
