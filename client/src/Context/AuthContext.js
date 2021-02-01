@@ -72,7 +72,6 @@ export default ({ children }) => {
 
       setRole(role);
     }
-<<<<<<< HEAD
 
 
     // Once the user is logged in, then they go to the Local Storage 
@@ -157,35 +156,3 @@ export default ({ children }) => {
     )
 
 }
-
-
-=======
-  };
-
-  // When the page loads, this gets Executed first
-  useEffect(() => {
-    setupSocket();
-    //eslint-disable-next-line
-  }, []);
-
-  return (
-    <div>
-      {/* The variables below will be available to be accessed to all Lower Level components */}
-      <AuthContext.Provider
-        value={{
-          userId,
-          setUserId,
-          isAuthenticated,
-          setIsAuthenticated,
-          role,
-          setRole,
-          setupSocket,
-          socket,
-        }}
-      >
-        {children}
-      </AuthContext.Provider>
-    </div>
-  );
-};
->>>>>>> b33a81a6b2a7232978c15b1a6928db36f111050b
