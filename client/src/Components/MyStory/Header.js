@@ -10,7 +10,7 @@ function Header() {
       <Container>
         <Row className="justify-content-center mt-5">
           <Col sm={12} md={6} lg={6}>
-            <img className="float-start myStoryPhoto" src={vanessa}></img>
+            <img className="float-start myStoryPhoto rounded" src={vanessa}></img>
           </Col>
           <Col sm={12} md={6} lg={6}>
             <h4>
