@@ -42,12 +42,13 @@ const app = require("./app");
 
 const PORT = process.env.PORT || 8000;
 
-const server = app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
 });
 
 
-const io = require("socket.io")(server, {
+
+const io = require("socket.io")({server : httpServer}, {
   cors: {
     origin : config.socketIoPort,
     methods: ["GET", "POST"]
