@@ -48,6 +48,10 @@ function NavBar() {
             <LeftNav />
           </ul>
 
+          <Link to="/">
+            <img style={{ width: 125 }} className="midNavLogo d-none d-xs-none d-sm-none d-md-none d-lg-block" src={Logo} />
+          </Link>
+
           <ul className="navbar-nav">
             <RightNav />
           </ul>
