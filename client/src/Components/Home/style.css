@@ -125,10 +125,15 @@
 
   .parallax {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    height: 110vh;
   }
 
   .helloTitle {
     top: -60px;
     right: 10px;
+  }
+
+  .mobileForm{
+    width: 50%;
   }
 }

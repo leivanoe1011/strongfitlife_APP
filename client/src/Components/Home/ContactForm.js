@@ -20,18 +20,18 @@ function ContactForm() {
               Beastmode Burst Workouts.
             </h3>
           </Col>
-          <Form className="mt-2">
+          <Form className="mt-2 mobileForm">
             <Form.Row>
-              <Col  sm={12} md={12} lg={3}>
+              <Col sm={12} md={12} lg={3}>
                 <Form.Control size="lg" placeholder="First name" />
               </Col>
-              <Col  sm={12} md={12} lg={3}>
+              <Col sm={12} md={12} lg={3}>
                 <Form.Control size="lg" placeholder="Last name" />
               </Col>
-              <Col  sm={12} md={12} lg={3}>
+              <Col sm={12} md={12} lg={3}>
                 <Form.Control size="lg" type="email" placeholder="Email" />
               </Col>
-              <Col  sm={12} md={12} lg={3}>
+              <Col sm={12} md={12} lg={3}>
                 <Button
                   type="submit"
                   size="lg"
@@ -43,7 +43,7 @@ function ContactForm() {
               </Col>
             </Form.Row>
           </Form>
-          <Col className="mt-5 mb-5">
+          <Col sm={12} className="mt-5 mb-5">
             <p className="text-light">
               We respect your privacy. You may unsubscribe at any time.
             </p>
