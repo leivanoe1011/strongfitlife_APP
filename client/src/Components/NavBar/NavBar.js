@@ -12,15 +12,10 @@ function NavBar() {
     <>
       <nav
         className="navbar navbar-expand-lg navbar-dark sticky-top"
-        style={{ backgroundColor: "black" }}
+        style={{ backgroundColor: "black"}}
       >
-        <Link className="navbar-brand" to="/">
-          <img
-            style={{ width: 125 }}
-            className="d-none d-lg-block"
-            src={Logo}
-            alt="Strong fit life logo"
-          />
+        <Link className="mobileBrand" to="/">
+          <img height="50px" width="50px" src={MobileLogo} alt="mobile logo"></img>
         </Link>
 
         <button
@@ -43,6 +38,10 @@ function NavBar() {
           <ul className="navbar-nav">
             <LeftNav />
           </ul>
+
+          <Link to="/">
+            <img style={{ width: 125 }} className="midNavLogo d-none d-xs-none d-sm-none d-md-none d-lg-block" src={Logo} />
+          </Link>
 
           <ul className="navbar-nav">
             <RightNav />
