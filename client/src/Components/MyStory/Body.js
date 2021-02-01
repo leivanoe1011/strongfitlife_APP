@@ -8,9 +8,7 @@ function Body() {
     <Container>
       <Row>
         <Col>
-            <div>
-                test body.
-            </div>
+          <p>test body</p>
         </Col>
       </Row>
     </Container>
