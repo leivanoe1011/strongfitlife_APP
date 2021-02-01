@@ -7,11 +7,10 @@ import vanessa from "../../images/vanessa-flores.jpeg";
 function Header() {
   return (
     <Container>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center mt-5">
         <Col sm={12} md={6} lg={6}>
-          <img className="img-fluid float-start" src={vanessa}></img>
+          <img className="float-start myStoryPhoto" src={vanessa}></img>
         </Col>
-
         <Col sm={12} md={6} lg={6}>
           <h4>
             Do you struggle through boring workouts day after day, feeling
