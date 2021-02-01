@@ -45,7 +45,7 @@ export default ({children}) => {
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
-        if(typeof storageToken != "undefined" ){
+        if(typeof storageToken !== undefined ){
             if (storageToken && !socket) {
 
                 console.log("In IF after storage token validated")

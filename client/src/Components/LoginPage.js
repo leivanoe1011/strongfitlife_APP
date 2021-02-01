@@ -4,7 +4,9 @@ import AuthService from "../Services/AuthService";
 import makeToast from "../Toaster";
 import { AuthContext } from "../Context/AuthContext";
 import { withRouter } from "react-router-dom"
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 const LoginPage = (props) => {
 
@@ -61,36 +63,41 @@ const LoginPage = (props) => {
 
 
   return( 
-      <div>
+    <div className="d-flex justify-content-center" style={{ padding : 25}}>
+    
+        <Card  style={{ width: '18rem' }}>
+          <Card.Body>
+            
+            <Form>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control 
+                        type="email" 
+                        placeholder="Enter email"  
+                        ref={emailRef}/>
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
 
-          <form>
-              <div className="form-group">
-                  <label htmlFor="exampleInputEmail1">Email address</label>
-                  <input 
-                      type="email" 
-                      className="form-control" 
-                      id="exampleInputEmail1" 
-                      aria-describedby="emailHelp" 
-                      placeholder="Enter email" 
-                      ref={emailRef}/>
-                  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control  
+                        type="password" 
+                        placeholder="Password" 
+                        ref={passwordRef} />
+                </Form.Group>
 
-              <div className="form-group">
-                  <label htmlFor="exampleInputPassword1">Password</label>
-                  <input 
-                      type="password" 
-                      className="form-control" 
-                      id="exampleInputPassword1" 
-                      placeholder="Password" 
-                      ref={passwordRef}/>
-              </div>
+                <Button variant="primary" type="submit">
+                Submit
+                </Button>
+            </Form>
 
-              <button onClick={loginUser} type="submit" className="btn btn-primary">Submit</button>
-          </form>
-          
-      </div>
+        </Card.Body>
 
+    </Card>
+    
+    </div>
   );
 
 };

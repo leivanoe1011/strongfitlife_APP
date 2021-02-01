@@ -2,6 +2,8 @@ import React from "react";
 import makeToast from "../Toaster";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 const LoginPage = (props) => {
 
@@ -60,32 +62,38 @@ const LoginPage = (props) => {
   };
 
   return (
-    <div className="card">
-      <div className="cardHeader">Login</div>
-      <div className="cardBody">
-        <div className="inputGroup">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="abc@example.com"
-            ref={emailRef} //This will update the State of the Email Ref variable
-          />
-        </div>
-        <div className="inputGroup">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Your Password"
-            ref={passwordRef}
-          />
-        </div>
-        <button onClick={loginUser}>Login</button>
-      </div>
-    </div>
+    <Card  style={{ width: '18rem' }}>
+          <Card.Body>
+            
+            <Form>
+                <Form.Group controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control 
+                        type="email" 
+                        placeholder="Enter email"  
+                        ref={emailRef}/>
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control  
+                        type="password" 
+                        placeholder="Password" 
+                        ref={passwordRef} />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                Submit
+                </Button>
+            </Form>
+
+        </Card.Body>
+
+    </Card>
+    
   );
 };
 

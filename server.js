@@ -68,12 +68,15 @@ io.use(async (socket, next) => {
 
   try{
 
+
         console.log("In socket io validating JWT token");
 
         // socket.handshake.query currently allows data to be set on "connect"
         const token = socket.handshake.query.token;
 
         console.log(token);
+
+        if(token !== undefined) throw "Undefined Token";
 
         // validate the token is correct
         const payload = await jwt.verify(token, process.env.SECRET);
