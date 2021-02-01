@@ -43,7 +43,7 @@ export default ({children}) => {
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
-        if (storageToken && storageToken != undefined && !socket) {
+        if (storageToken && storageToken !== undefined && !socket) {
 
 
             // Connect to the server and validate the token
@@ -103,7 +103,6 @@ export default ({children}) => {
             </AuthContext.Provider>
         </div>
     )
-
 }
 
 
