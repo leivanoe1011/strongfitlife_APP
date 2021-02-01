@@ -40,48 +40,52 @@ export default ({children}) => {
 
         const storageRole = localStorage.getItem("CC_role");
 
+        console.log("getting the StorageRole")
+        console.log(storageRole);
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
         if (storageToken && storageToken !== undefined && !socket) {
 
+                console.log("In IF after storage token validated")
 
-            // Connect to the server and validate the token
-            // This will go to the function in the Server where we are 
-            // Initializing the IO middleware
-            // Below passing the token in the local Storage to the Server and validate
-            const newSocket = io(socketIoPort, {
-                query: {
-                    token: storageToken,
-                    role: storageRole
-                },
-            });
-
-
-            newSocket.on("disconnect", () => {
-
-                setSocket(null);
-                setTimeout(setupSocket, 3000);
-                makeToast("error", "Socket Disconnected!");
-                setIsAuthenticated(false);
-
-            });
+                // Connect to the server and validate the token
+                // This will go to the function in the Server where we are 
+                // Initializing the IO middleware
+                // Below passing the token in the local Storage to the Server and validate
+                const newSocket = io(socketIoPort, {
+                    query: {
+                        token: storageToken,
+                        role: storageRole
+                    },
+                });
 
 
-            // This call the IO.ON("connection") function
-            // We can attach a listener to fire when we've connected to the server
-            newSocket.on("connect", () => {
-                  
-                makeToast("success", "Socket Connected!");
+                newSocket.on("disconnect", () => {
 
-            });
+                    setSocket(null);
+                    setTimeout(setupSocket, 3000);
+                    makeToast("error", "Socket Disconnected!");
+                    setIsAuthenticated(false);
 
-            setSocket(newSocket);
+                });
 
-            setIsAuthenticated(true);
 
-            setRole(role);
-                            
+                // This call the IO.ON("connection") function
+                // We can attach a listener to fire when we've connected to the server
+                newSocket.on("connect", () => {
+                    
+                    makeToast("success", "Socket Connected!");
+
+                });
+
+                setSocket(newSocket);
+
+                setIsAuthenticated(true);
+
+                setRole(role);
+                                
+            }
         }
 
     };
