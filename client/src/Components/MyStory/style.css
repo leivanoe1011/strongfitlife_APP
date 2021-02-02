@@ -18,6 +18,36 @@
   width: 750px;
 }
 
+.myStoryText h4 {
+  font-weight: bold;
+}
+
+.myStoryText p {
+  font-weight: bold;
+  font-size: 110%;
+  line-height: 150%;
+}
+
+.myStoryText > .myStoryTitle {
+  font-style: italic;
+}
+
+.textRow > div {
+  background-color: salmon
+}
+
+.textRow > div > div {
+  text-align: center;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 1199px) {
+  .myStoryText {
+    width: 170%;
+    margin-left: -200px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .myStoryPhoto {
     position: relative;
