@@ -10,6 +10,11 @@ body {
   font-size: 16px;
 }
 
+.midNavLogo {
+  position: relative;
+  left: 70px;
+}
+
 .footer {
   position: relative;
   bottom: 0;
@@ -69,3 +74,8 @@ a {
   text-decoration: none;
   color: #333;
 }
+
+
+/* @media only screen and (max-width: 600px){
+
+} */

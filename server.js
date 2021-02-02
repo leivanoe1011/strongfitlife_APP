@@ -1,5 +1,3 @@
-
-
 // This will bring in the ENV variables
 require("dotenv").config();
 
