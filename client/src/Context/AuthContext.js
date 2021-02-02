@@ -16,7 +16,7 @@ export default ({ children }) => {
   var socketIoPort = "";
 
   // const configObj = dotenv.config.Scopes;
-
+  // Might just be able to package Socket IO PORT through Server Host
   if (process.env.NODE_ENV === "production") {
     socketIoPort = "https://strongfitlife-app.herokuapp.com/";
   } else {
