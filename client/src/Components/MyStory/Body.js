@@ -13,14 +13,12 @@ function Body() {
           lg={{ span: 4, offset: 0 }}
           className="bg-primary" style={{ padding: "50px" }}>
           <div className="innerTextCon">
-            <div>
-              <p>a few of the things</p>
-              <h4>I love</h4>
-              <p>
-                working out trying new restaurants being spontaneous my family
-                traveling
+            <p>a few of the things</p>
+            <h4>I love</h4>
+            <p>
+              working out trying new restaurants being spontaneous my family
+              traveling
               </p>
-            </div>
           </div>
         </Col>
         <Col
@@ -29,14 +27,12 @@ function Body() {
           lg={4}
           style={{ backgroundColor: "cyan", padding: "50px" }}>
           <div className="innerTextCon text-light" style={{}}>
-            <div>
-              <p>a handful of things</p>
-              <h4>I enjoy</h4>
-              <p>
-                being outside exploring new places social gatherings laughing
-                massages
+            <p>a handful of things</p>
+            <h4>I enjoy</h4>
+            <p>
+              being outside exploring new places social gatherings laughing
+              massages
               </p>
-            </div>
           </div>
         </Col>
         <Col
@@ -45,14 +41,12 @@ function Body() {
           lg={4}
           style={{ backgroundColor: "salmon", padding: "50px" }}>
           <div className="innerTextCon">
-            <div>
-              <p>when in doubt, this will</p>
-              <h4>make me happy</h4>
-              <p>
-                listening to music being inspired being productive learning
-                dancing
+            <p>when in doubt, this will</p>
+            <h4>make me happy</h4>
+            <p>
+              listening to music being inspired being productive learning
+              dancing
               </p>
-            </div>
           </div>
         </Col>
       </Row>
