@@ -33,16 +33,16 @@
   color: blue;
   margin-bottom: 10px;
 }
+@media only screen and (max-width: 1199px) {
+  .headerTitle {
+    left: 60px;
+    padding: 10px;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   .headerTitle {
     left: 0px;
     padding: 2px;
-  }
-}
-@media only screen and (max-width: 1199px) {
-  .headerTitle {
-    left: 60px;
-    padding: 10px;
   }
 }

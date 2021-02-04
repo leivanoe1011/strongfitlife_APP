@@ -49,7 +49,7 @@ function Body() {
                     md={12}
                     lg={12}
                 >
-                    <a className="btn btn-large mb-5" href="/learnMore" style={{ backgroundColor: "salmon", color: "white" }}>
+                    <a className="btn btn-large mb-5 mt-5" href="/learnMore" style={{ backgroundColor: "salmon", color: "white" }}>
                         LEARN MORE ABOUT 1:1 FITNESS COACHING
                     </a>
                 </Col>
