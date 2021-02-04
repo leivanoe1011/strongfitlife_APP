@@ -27,6 +27,7 @@ const LoginPage = (props) => {
     };
 
     AuthService.login(user).then((response) => {
+      
       const { message, token, role, userId } = response;
 
       makeToast("success", message);
@@ -50,6 +51,7 @@ const LoginPage = (props) => {
       // After user is logged in, we load the Dashboard page
       // This is possible with the withRouter React Function at the end
       props.history.push("/dashboard");
+      
     });
   };
 
@@ -80,7 +82,7 @@ const LoginPage = (props) => {
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit" onClick={loginUser}>
                 Submit
               </Button>
             </Form>
