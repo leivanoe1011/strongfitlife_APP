@@ -23,20 +23,26 @@
 }
 
 .oneToOneBody h4 {
-    color: salmon;
-    font-weight: bold;
-    line-height: 180%;
-    margin-bottom: 20px;
+  color: salmon;
+  font-weight: bold;
+  line-height: 180%;
+  margin-bottom: 20px;
 }
 
 .oneToOneBody p {
-    color: blue;
-    margin-bottom: 10px;
+  color: blue;
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
   .headerTitle {
     left: 0px;
     padding: 2px;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .headerTitle {
+    left: 60px;
+    padding: 10px;
   }
 }
