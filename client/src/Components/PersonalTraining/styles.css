@@ -22,10 +22,21 @@
   background-color: black;
 }
 
+.oneToOneBody h4 {
+    color: salmon;
+    font-weight: bold;
+    line-height: 180%;
+    margin-bottom: 20px;
+}
 
-@media only screen and (max-width: 600px){
-    .headerTitle{
-        left: 0px;
-        padding: 2px;
-    }
+.oneToOneBody p {
+    color: blue;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .headerTitle {
+    left: 0px;
+    padding: 2px;
+  }
 }
