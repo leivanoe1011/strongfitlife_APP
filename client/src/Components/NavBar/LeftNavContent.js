@@ -19,7 +19,7 @@ function LeftNav() {
           </Link>
         </li>
         <NavDropdown title="PROGRAMS" id="basic-nav-dropdown">
-          <NavDropdown.Item  href="/myStory">My story</NavDropdown.Item>
+          <NavDropdown.Item  href="/unleashBeast">Unleash the beast</NavDropdown.Item>
           <NavDropdown.Item href="/personalTraining">1:1 Personal training</NavDropdown.Item>
         </NavDropdown>
       </>
