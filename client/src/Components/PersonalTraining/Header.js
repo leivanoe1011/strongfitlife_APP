@@ -11,7 +11,6 @@ function Header() {
                     <h1 className="headerTitle"> 1:1 PERSONAL TRAINING</h1>
                 </Row>
             </Container>
-
         </div>
     )
 }

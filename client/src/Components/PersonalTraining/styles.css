@@ -25,7 +25,7 @@
 
 @media only screen and (max-width: 600px){
     .headerTitle{
-        left: 1px;
+        left: 0px;
         padding: 2px;
     }
 }
