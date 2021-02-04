@@ -9,12 +9,14 @@ import CreateUserPage from "../Components/Chat/CreateUserPage";
 import ChatroomPage from "../Components/Chat/ChatPage";
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
+import PersonalTraining from "../Components/PersonalTraining";
 
 function CustomRoutes() {
   return (
     <Switch>
       <Route exact path="/" render={MainBody} />
       <Route exact path="/myStory" render={MyStory} />
+      <Route exact path="/personalTraining" render={PersonalTraining} />
       <UnPrivateRoute exact path="/login" component={LoginPage} />
       <UnPrivateRoute exact path="/register" component={RegisterPage} />
       <PrivateRoute

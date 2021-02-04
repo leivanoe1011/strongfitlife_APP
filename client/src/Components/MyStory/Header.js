@@ -10,6 +10,7 @@ function Header() {
       <Row className="justify-content-center mt-5">
         <Col sm={12} md={6} lg={6}>
           <img
+            alt="Vanessa"
             className="float-start myStoryPhoto rounded img-fluid"
             src={vanessa}
           ></img>
@@ -90,11 +91,12 @@ function Header() {
       <Row className="text-center">
         <Col sm={12} md={12} lg={12}>
           <a
+            href="/"
             className="btn btn-large text-light mt-5"
             style={{ backgroundColor: "salmon" }}
           >
             READY TO EXPERIENCE REAL RESULTS? START HERE
-            </a>
+          </a>
         </Col>
       </Row>
     </Container>

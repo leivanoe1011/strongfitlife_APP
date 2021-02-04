@@ -55,7 +55,7 @@ function Credentials() {
                 >
                     <h4>Published in</h4>
                     <a href="https://thriveglobal.com/stories/strengthen-your-mindset-by-sticking-to-your-workout-ritual-with-these-4-steps/?fbclid=IwAR2m0L6HGkzBQbMhFr3OMfKFqY1j2mZ2KCe_-7j9b6SvJ9_zluQ57T4SjGY&utm_campaign=Published&utm_medium=Thrive&utm_source=Newsletter_Transaction" className="mt-3">
-                        <img src={thriveGlobal} />
+                        <img alt="thrive global logo" src={thriveGlobal} />
                     </a>
                     <a href="https://thriveglobal.com/stories/strengthen-your-mindset-by-sticking-to-your-workout-ritual-with-these-4-steps/?fbclid=IwAR2m0L6HGkzBQbMhFr3OMfKFqY1j2mZ2KCe_-7j9b6SvJ9_zluQ57T4SjGY&utm_campaign=Published&utm_medium=Thrive&utm_source=Newsletter_Transaction" className="link-info">
                         <h4>Strengthen your mindset by sticking to your workout ritual with these 4 steps.</h4>
@@ -63,7 +63,7 @@ function Credentials() {
                     <h4>
                         October 15, 2020
                     </h4>
-                    <img src={identityMagazine} className="mt-5" />
+                    <img alt="identity magazine logo" src={identityMagazine} className="mt-5" />
                 </Col>
             </Row>
         </Container>
