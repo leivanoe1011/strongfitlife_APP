@@ -13,9 +13,7 @@ function Footer() {
             md={12}
             lg={12}
           >
-            <h4 className="" style={{ color: "salmon" }}>
-              Site map
-            </h4>
+           
             <div className="siteMap">
               <p><a href="/">Home</a></p>
               <p><a href="/myStory">My story</a></p>
@@ -28,9 +26,7 @@ function Footer() {
         </Row>
         <Row className="text-center mt-4 mb-4">
           <Col sm={12} md={12} lg={12}>
-            <h4 style={{ color: "blue" }}>
-              Socials
-            </h4>
+            
             <div className="siteMap">
               <p><a href="https://www.instagram.com/thestrongfitlife/">Instagram</a></p>
               <p><a href="https://www.facebook.com/thestrongfitlife"> Facebook</a></p>
