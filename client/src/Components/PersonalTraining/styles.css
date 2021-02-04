@@ -1,0 +1,12 @@
+.parallax2 {
+  /* The image used */
+  background-image: url("../../images/personal-training.jpeg");
+  /* Full height */
+  height: 80vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
