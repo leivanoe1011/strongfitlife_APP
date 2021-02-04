@@ -26,7 +26,7 @@ function Body() {
           md={12}
           lg={4}
           style={{ backgroundColor: "cyan", padding: "50px" }}>
-          <div className="innerTextCon text-light" style={{}}>
+          <div className="innerTextCon text-light">
             <p>a handful of things</p>
             <h4>I enjoy</h4>
             <p>
