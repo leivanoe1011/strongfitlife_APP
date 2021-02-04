@@ -10,3 +10,39 @@
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
+
+.headerTitle {
+  position: relative;
+  left: 250px;
+  top: 250px;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 3rem;
+  padding: 20px;
+  background-color: black;
+}
+
+.oneToOneBody h4 {
+  color: salmon;
+  font-weight: bold;
+  line-height: 180%;
+  margin-bottom: 20px;
+}
+
+.oneToOneBody p {
+  color: blue;
+  margin-bottom: 10px;
+}
+@media only screen and (max-width: 1199px) {
+  .headerTitle {
+    left: 60px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .headerTitle {
+    left: 0px;
+    padding: 2px;
+  }
+}
