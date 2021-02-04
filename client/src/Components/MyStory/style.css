@@ -32,19 +32,42 @@
   font-style: italic;
 }
 
-.textRow > div {
-  background-color: salmon
+.textBox {
+  display: inline-flex;
+  margin-bottom: 100px;
+  height: 200px;
+  left: 100px;
 }
 
-.textRow > div > div {
+.textBox h4 {
   text-align: center;
+  font-weight: bold;
+}
+
+.textBox p {
+  text-align: center;
+  font-weight: bold;
+}
+
+.innerTextCon p{
+  color: white;
+  font-weight: bold;
+}
+
+.innerTextCon h4{
+  color: white;
   font-weight: bold;
 }
 
 @media only screen and (min-width: 1199px) {
   .myStoryText {
-    width: 170%;
+    width: 150%;
     margin-left: -200px;
+  }
+
+  .textBox {
+    position: relative;
+    top: 20px;
   }
 }
 
@@ -54,6 +77,10 @@
     right: 0px;
     height: 100%;
     width: 100%;
+  }
+
+  .textBox {
+    display: inline;
   }
 }
 
