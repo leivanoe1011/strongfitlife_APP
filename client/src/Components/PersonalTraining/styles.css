@@ -10,3 +10,22 @@
   background-size: cover;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
+
+.headerTitle {
+  position: relative;
+  left: 250px;
+  top: 250px;
+  color: whitesmoke;
+  font-weight: bold;
+  font-size: 3rem;
+  padding: 20px;
+  background-color: black;
+}
+
+
+@media only screen and (max-width: 600px){
+    .headerTitle{
+        left: 1px;
+        padding: 2px;
+    }
+}
