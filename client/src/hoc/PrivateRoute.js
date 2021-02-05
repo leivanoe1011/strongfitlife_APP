@@ -1,15 +1,13 @@
 
 import React, {useContext} from 'react';
-import {Route,Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthContext';
 
 const PrivateRoute = ({component : Component, roles, ...rest})=>{
 
-    const { isAuthenticated, role, user} = useContext(AuthContext);
 
-    console.log("In private HOC");
-    console.log(`IsAuthenticated ${isAuthenticated}. role ${role}. user ${user}`);
-    console.log(roles);
+    const { isAuthenticated, role} = useContext(AuthContext);
+
 
     return(
         

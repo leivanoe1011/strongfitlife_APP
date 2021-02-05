@@ -3,20 +3,24 @@ import React, { useContext } from "react";
 import AuthService from "../Services/AuthService";
 import makeToast from "../Toaster";
 import { AuthContext } from "../Context/AuthContext";
-import { withRouter } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
+import {useHistory} from "react-router";
+
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const LoginPage = (props) => {
+function LoginPage () {
+
   const emailRef = React.createRef();
   const passwordRef = React.createRef();
+  const history = useHistory();
+
 
   // Used to track the persistent autherication token
   // Use Context will use the Auth Context file which contains the Autherization
   // of the user
   const authContext = useContext(AuthContext);
-  const { setUserId, setRole } = useContext(AuthContext);
 
   const loginUser = (e) => {
     e.preventDefault();
@@ -38,11 +42,6 @@ const LoginPage = (props) => {
 
       localStorage.setItem("CC_role", role);
 
-      setUserId(userId);
-
-      setRole(role);
-
-      // localStorage.setItem("User_Role", response.data.role);
 
       // Call the setup Socket function from the APP.JS
       // This will get the Token stored above in the Local Storage
@@ -50,7 +49,9 @@ const LoginPage = (props) => {
 
       // After user is logged in, we load the Dashboard page
       // This is possible with the withRouter React Function at the end
-      props.history.push("/dashboard");
+      // props.history.push("/dashboard");
+      history.push("/dashboard");
+
       
     });
   };
@@ -97,4 +98,7 @@ const LoginPage = (props) => {
 // the closest <Route>'s match via the withRouter
 // higher-order component. withRouter will pass updated match,
 // location, and history props to the wrapped component whenever it renders
-export default withRouter(LoginPage);
+// export default withRouter(LoginPage);
+export default LoginPage;
+
+

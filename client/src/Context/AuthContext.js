@@ -36,15 +36,13 @@ export default ({ children }) => {
 
         const storageRole = localStorage.getItem("CC_role");
 
-        console.log("getting the StorageRole")
-        console.log(storageRole);
+
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
         if(typeof storageToken !== undefined ){
             if (storageToken && !socket) {
 
-                console.log("In IF after storage token validated")
 
                 // Connect to the server and validate the token
                 // This will go to the function in the Server where we are 
@@ -80,7 +78,7 @@ export default ({ children }) => {
 
                 setIsAuthenticated(true);
 
-                setRole(role);
+                setRole(storageRole);
                                 
             }
         }
