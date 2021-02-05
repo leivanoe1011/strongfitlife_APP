@@ -57,7 +57,8 @@ function Login (props) {
 
             // After user is logged in, we load the Dashboard page
             // This is possible with the withRouter React Function at the end
-            props.history.push("/dashboard");
+            this.props.history.push("/dashboard");
+
         })
 
     }
