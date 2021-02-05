@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../Context/AuthContext";
 
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 function LeftNav() {
   const { isAuthenticated } = useContext(AuthContext);
   // const { isAuthenticated, role } = useContext(AuthContext);
@@ -16,11 +18,10 @@ function LeftNav() {
             MY STORY
           </Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/contact">
-            PROGRAMS
-          </Link>
-        </li>
+        <NavDropdown title="PROGRAMS" id="basic-nav-dropdown">
+          <NavDropdown.Item  href="/unleashBeast">Unleash the beast</NavDropdown.Item>
+          <NavDropdown.Item href="/personalTraining">1:1 Personal training</NavDropdown.Item>
+        </NavDropdown>
       </>
     );
   };
