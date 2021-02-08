@@ -62,14 +62,14 @@ function Header() {
                         </Form.Row>
                         <Form.Row className="mt-3 mb-5">
                             <Col>
-                                <Form.Control as="textarea" size="lg" type="email" placeholder="Your message" />
+                                <Form.Control as="textarea" size="lg" type="email" placeholder="What are you struggling with when it comes to working out and/or eating healthier?" />
                             </Col>
                         </Form.Row>
                         <Form.Row className="mt-3 mb-5">
                             <Col>
-                                <Button type="submit">
+                                <Button type="submit" style={{ backgroundColor: "salmon", color: "white" }} onClick={(e) => e.preventDefault()}>
                                     Submit
-                            </Button>
+                                </Button>
                             </Col>
                         </Form.Row>
                     </Form>
