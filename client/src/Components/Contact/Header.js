@@ -55,7 +55,7 @@ function Header() {
                     </Form.Row>
                     <Form.Row className="mt-3 mb-5">
                         <Col>
-                            <Form.Control as="textarea" size="lg" type="email" placeholder="email" />
+                            <Form.Control as="textarea" size="lg" type="email" placeholder="Your message" />
                         </Col>
                     </Form.Row>
                     <Form.Row className="mt-3 mb-5">
