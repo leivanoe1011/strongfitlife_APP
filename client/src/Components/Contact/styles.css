@@ -1,20 +1,42 @@
-.nowPic{
-    height: 50%;
+.contactRow {
+  margin-top: 50px;
+  height: 50vh;
 }
 
-.contactRow{
-    margin-top: 50px;
-    height: 50vh;
+.textCon {
+  margin-top: 100px;
+  position: relative;
+  right: 10px;
 }
 
-.textCon{
-    margin-top: 100px;
-    position: relative;
-    right: 180px;
+.contactHeader {
+  position: relative;
+  right: 50px;
+  z-index: 1;
 }
 
-.contactHeader{
-    position: relative;
-    right: 50px;
-    z-index: 1;
+.contactForm{
+    margin-top: 300px
+}
+
+@media only screen and (max-width: 600px) {
+  .contactHeader {
+    right: 0px;
+  }
+  .textCon {
+    right: 0px;
+    margin-top: 30px;
+  }
+  .contactRow {
+    margin-top: 0px;
+  }
+
+  .nowPic {
+    height: 30%;
+    margin-top: 20px;
+  }
+
+  .contactForm{
+      margin-top: 390px;
+  }
 }

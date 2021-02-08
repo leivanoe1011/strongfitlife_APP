@@ -17,13 +17,14 @@ function Header() {
                     md={12}
                     lg={6}
                 >
-                    <Image src={nowPic} className="nowPic" />
+                    <Image src={nowPic} fluid className="nowPic" />
                 </Col>
                 <Col
                     sm={12}
                     md={12}
                     lg={6}
                 >
+
                     <div className="textCon">
                         <h1 className="p1 bg-white contactHeader">
                             Ready to get Strong & Fit?
@@ -39,31 +40,40 @@ function Header() {
                 </Col>
             </Row>
             <Row className="justify-content-center">
-                <Form>
-                    <Form.Row>
-                        <Col>
-                            <Form.Control size="lg" type="text" placeholder="first name" />
-                        </Col>
-                        <Col>
-                            <Form.Control size="lg" type="text" placeholder="last name" />
-                        </Col>
-                    </Form.Row>
-                    <Form.Row className="mt-3">
-                        <Col>
-                            <Form.Control size="lg" type="email" placeholder="email" />
-                        </Col>
-                    </Form.Row>
-                    <Form.Row className="mt-3 mb-5">
-                        <Col>
-                            <Form.Control as="textarea" size="lg" type="email" placeholder="Your message" />
-                        </Col>
-                    </Form.Row>
-                    <Form.Row className="mt-3 mb-5">
-                        <Button type="submit">
-                            Submit
-                        </Button>
-                    </Form.Row>
-                </Form>
+                <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+                    className="contactForm"
+                >
+                    <Form>
+                        <Form.Row>
+                            <Col>
+                                <Form.Control size="lg" type="text" placeholder="first name" />
+                            </Col>
+                            <Col>
+                                <Form.Control size="lg" type="text" placeholder="last name" />
+                            </Col>
+                        </Form.Row>
+                        <Form.Row className="mt-3">
+                            <Col>
+                                <Form.Control size="lg" type="email" placeholder="email" />
+                            </Col>
+                        </Form.Row>
+                        <Form.Row className="mt-3 mb-5">
+                            <Col>
+                                <Form.Control as="textarea" size="lg" type="email" placeholder="Your message" />
+                            </Col>
+                        </Form.Row>
+                        <Form.Row className="mt-3 mb-5">
+                            <Col>
+                                <Button type="submit">
+                                    Submit
+                            </Button>
+                            </Col>
+                        </Form.Row>
+                    </Form>
+                </Col>
             </Row>
         </Container>
     )
