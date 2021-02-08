@@ -90,7 +90,7 @@ function Register(props) {
 
                                 <div className="form-group">
                                     <label htmlFor="inputDob">Date of Birth</label>
-                                    <input ref={dobRef} type="text" className="form-control" id="inputDob" placeholder="Enter DOB" />
+                                    <input ref={dobRef} type="date" className="form-control" id="inputDob" placeholder="Enter DOB" />
                                 </div>
 
 
