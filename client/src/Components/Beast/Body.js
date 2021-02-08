@@ -74,6 +74,27 @@ function Body() {
                     </p>
                 </Col>
             </Row>
+            <Row className="text-center">
+                <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <a className="btn btn-large bg-primary text-light mt-5">
+                        SNAG A FREE WORKOUT SESSION
+                    </a>
+
+                </Col>
+                <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <a className="btn btn-large bg-success text-light mt-5 mb-5">
+                        SIGN UP FOR BEASTMODE NOW
+                    </a>
+                </Col>
+            </Row>
         </Container>
     )
 }
