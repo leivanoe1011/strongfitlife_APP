@@ -28,7 +28,7 @@ function Body() {
                 </Col>
 
             </Row>
-            <Row style={{marginTop: "50px"}}>
+            <Row style={{ marginTop: "50px" }}>
                 <Col
                     sm={6}
                     md={6}
@@ -71,7 +71,7 @@ function Body() {
                     <p>
                         ✔ BONUS Fuel the Beast Recipes + Cooking Videos + Grocery Lists
                     </p>
-                    <p style={{fontWeight: "bold"}}>
+                    <p style={{ fontWeight: "bold" }}>
                         $99/month
                     </p>
                 </Col>
@@ -92,7 +92,7 @@ function Body() {
                     md={12}
                     lg={12}
                 >
-                    <a href="/signUp" className="btn btn-large bg-success text-light mt-5 mb-5">
+                    <a href="/signUp" className="btn btn-large text-light mt-5 mb-5" style={{ backgroundColor: "salmon" }}>
                         SIGN UP FOR BEASTMODE NOW
                     </a>
                 </Col>
