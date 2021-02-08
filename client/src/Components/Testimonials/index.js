@@ -13,10 +13,28 @@ import nathan from "../../images/Testimonials/Nathan.jpg";
 import tonya from "../../images/Testimonials/Tonya-c.jpg";
 import trancy from "../../images/Testimonials/Trancy.jpg";
 import brittany from "../../images/Testimonials/Brittany-B.jpg";
+import "./styles.css";
 
 function Testimonials() {
     return (
         <Container>
+            <Row>
+                <Col
+                    sm={12}
+                    md={12}
+                    lg={12}
+
+                    className="headerText"
+                >
+                    <h1>
+                        Seeing is Believing!
+                    </h1>
+                    <h4>
+                        These current and past clients have experienced incredible results using my methods, and it shows.
+                    </h4>
+                </Col>
+
+            </Row>
             <Row className="justify-content-center">
                 <Col
                     sm={12}
