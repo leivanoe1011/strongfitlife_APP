@@ -2,6 +2,8 @@ import React from "react";
 import Col from "react-bootstrap/col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import ropes from "../../images/ropes.jpg"
 
 function Body() {
     return (
@@ -32,7 +34,44 @@ function Body() {
                     md={6}
                     lg={6}
                 >
-                    
+                    <Image src={ropes} fluid />
+                </Col>
+                <Col
+                    sm={6}
+                    md={6}
+                    lg={6}
+                >
+                    <h4>
+                        What’s included in the program?
+                    </h4>
+                    <p>
+                        ✔ 4 Live Zoom Workouts Every Week
+                    </p>
+                    <p>
+                        ✔ Unlimited Access to Previously Recorded Workouts
+
+                    </p>
+                    <p>
+                        ✔ Online Access to Your Own Personal Health and Fitness Trainer
+                    </p>
+                    <p>
+                        ✔ Live Accountability and Support in Our Exclusive Facebook Community
+                    </p>
+                    <p>
+                        ✔ Bi-Weekly 1:1 Accountability Calls with Yours Truly
+                    </p>
+                    <p>
+                        ✔ Bi-Weekly Group Check-ins with Your Beastmode Buddies
+                    </p>
+                    <p>
+                        ✔ Motivating Challenges
+                    </p>
+                    <p>
+                        ✔ BONUS Fuel the Beast Recipes + Cooking Videos + Grocery Lists
+                    </p>
+                    <p>
+                        $99/month
+                    </p>
                 </Col>
             </Row>
         </Container>
