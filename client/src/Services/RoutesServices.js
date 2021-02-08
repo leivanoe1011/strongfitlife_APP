@@ -1,3 +1,4 @@
+
 import { Switch, Route } from "react-router-dom";
 
 import PrivateRoute from "../hoc/PrivateRoute";
@@ -44,3 +45,4 @@ function CustomRoutes() {
 }
 
 export default CustomRoutes;
+
