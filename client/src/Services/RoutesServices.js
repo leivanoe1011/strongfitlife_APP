@@ -19,6 +19,7 @@ function CustomRoutes() {
     <Switch>
       <Route exact path="/" render={MainBody} />
       <Route exact path="/myStory" render={MyStory} />
+      <Route exact path="/personalTraining" render={PersonalTraining} />
       <Route exact path="/unleashBeast" render={Beast} />
       <Route exact path="/testimonials" render={Testimonials} />
       <UnPrivateRoute exact path="/login" component={LoginPage} />
