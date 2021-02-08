@@ -22,7 +22,7 @@ function LeftNav() {
         </li>
 
         <li className="nav-item">
-          <Link className="nav-link" to="/#features">
+          <Link className="nav-link" to="/contact">
             CONTACT
           </Link>
         </li>
