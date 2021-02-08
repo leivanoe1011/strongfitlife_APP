@@ -28,7 +28,7 @@ function Body() {
                 </Col>
 
             </Row>
-            <Row>
+            <Row style={{marginTop: "50px"}}>
                 <Col
                     sm={6}
                     md={6}
@@ -40,6 +40,8 @@ function Body() {
                     sm={6}
                     md={6}
                     lg={6}
+
+                    className="listText"
                 >
                     <h4>
                         What’s included in the program?
@@ -69,7 +71,7 @@ function Body() {
                     <p>
                         ✔ BONUS Fuel the Beast Recipes + Cooking Videos + Grocery Lists
                     </p>
-                    <p>
+                    <p style={{fontWeight: "bold"}}>
                         $99/month
                     </p>
                 </Col>
@@ -80,7 +82,7 @@ function Body() {
                     md={12}
                     lg={12}
                 >
-                    <a className="btn btn-large bg-primary text-light mt-5">
+                    <a href="/freeWorkout" className="btn btn-large bg-primary text-light mt-5">
                         SNAG A FREE WORKOUT SESSION
                     </a>
 
@@ -90,7 +92,7 @@ function Body() {
                     md={12}
                     lg={12}
                 >
-                    <a className="btn btn-large bg-success text-light mt-5 mb-5">
+                    <a href="/signUp" className="btn btn-large bg-success text-light mt-5 mb-5">
                         SIGN UP FOR BEASTMODE NOW
                     </a>
                 </Col>

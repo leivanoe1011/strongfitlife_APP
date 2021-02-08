@@ -22,3 +22,13 @@
   color: blue;
   font-size: 1.8rem;
 }
+
+.listText p{
+  font-size: larger;
+}
+
+.listText h4{
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 20px;
+}
