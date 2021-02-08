@@ -11,7 +11,7 @@ function LeftNav() {
     return (
       <>
         <li className="nav-item">
-          <Link className="nav-link" to="/#features">
+          <Link className="nav-link" to="/testimonials">
             TESTIMONIAL
           </Link>
         </li>
