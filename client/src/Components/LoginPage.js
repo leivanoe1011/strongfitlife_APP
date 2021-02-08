@@ -42,6 +42,8 @@ function LoginPage () {
 
       localStorage.setItem("CC_role", role);
 
+      localStorage.setItem("CC_UserId", userId);
+
 
       // Call the setup Socket function from the APP.JS
       // This will get the Token stored above in the Local Storage

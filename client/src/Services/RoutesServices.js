@@ -6,16 +6,18 @@ import UnPrivateRoute from "../hoc/UnPrivateRoute";
 import LoginPage from "../Components/LoginPage";
 import RegisterPage from "../Components/CreateUser/RegisterPage";
 import DashboardPage from "../Components/Dashboard/DashboardPage";
-import CreateUserPage from "../Components/Chat/CreateUserPage";
-import ChatroomPage from "../Components/Chat/ChatPage";
+import CreateUserPage from "../Components/CreateUser/CreateUserPage";
+import ChatroomPage from "../Components/Chat/Chatroom";
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
+import PersonalTraining from "../Components/PersonalTraining";
 
 function CustomRoutes() {
   return (
     <Switch>
       <Route exact path="/" render={MainBody} />
       <Route exact path="/myStory" render={MyStory} />
+      <Route exact path="/personalTraining" render={PersonalTraining} />
       <UnPrivateRoute exact path="/login" component={LoginPage} />
       <UnPrivateRoute exact path="/register" component={RegisterPage} />
       <PrivateRoute

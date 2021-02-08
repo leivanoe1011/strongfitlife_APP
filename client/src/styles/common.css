@@ -75,7 +75,28 @@ a {
   color: #333;
 }
 
+.siteMap p {
+  display: inline;
+  margin-right: 10px;
+  font-weight: bold;
+}
 
-/* @media only screen and (max-width: 600px){
+.siteMap a {
+  color: white;
+  text-decoration: none;
+}
 
-} */
+
+@media only screen and (max-width: 600px){
+  .siteMap p {
+    display: block;
+    margin-right: 0px;
+    font-weight: bold;
+  }
+  
+  .siteMap a {
+    color: white;
+    text-decoration: none;
+  }
+  
+}

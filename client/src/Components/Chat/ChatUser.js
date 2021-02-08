@@ -15,9 +15,7 @@ function Chat (props) {
 
     console.log("In Chat Page js file");
 
-    const chatroomId = props.chatId;
-
-    console.log(props.chatId);
+    const chatroomId = props.match.params.id;
 
     // const token = localStorage.getItem("CC_Token"); 
 
@@ -56,10 +54,8 @@ function Chat (props) {
     
          ServerServices.GetChatMessages(chatroomId)
             .then((data) => {
-              console.log("In Get Chat Messages");
-              console.log(data);
     
-              const newMessage = [];
+            const newMessage = [];
     
              for(var i = 0; i < data.length; i++){
     
