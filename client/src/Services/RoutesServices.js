@@ -5,7 +5,7 @@ import PrivateRoute from "../hoc/PrivateRoute";
 import UnPrivateRoute from "../hoc/UnPrivateRoute";
 import LoginPage from "../Components/LoginPage";
 import RegisterPage from "../Components/CreateUser/RegisterPage";
-import DashboardPage from "../Components/Dashboard/DashboardPage";
+import Dash from "../Components/Dashboard";
 import CreateUserPage from "../Components/Chat/CreateUserPage";
 import ChatroomPage from "../Components/Chat/ChatPage";
 import MainBody from "../Components/Home/MainBody";
@@ -30,7 +30,7 @@ function CustomRoutes() {
         exact
         path="/dashboard"
         roles={["admin", "user"]}
-        component={DashboardPage}
+        component={Dash}
       />
       <PrivateRoute
         exact
