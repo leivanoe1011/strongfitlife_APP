@@ -32,8 +32,8 @@ function LeftNav() {
         {/* {(role === "admin") ? adminUserNavLinks() : notAdminUserNavLink()} */}
 
         <li className="nav-item">
-          <Link className="nav-link" to="/#features">
-            LEFT
+          <Link className="nav-link" to="/dashboard">
+            DASHBOARD
           </Link>
         </li>
         <li className="nav-item">

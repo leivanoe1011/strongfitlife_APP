@@ -19,6 +19,7 @@ module.exports = async (req, res, next) => {
     // which includes the USER Mongo Model Object _ID
     req.payload = payload;
 
+
     // Move to the next step of the function that requested Authorization
     next(); 
     
