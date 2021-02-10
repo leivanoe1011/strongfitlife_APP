@@ -1,0 +1,34 @@
+.parallax3 {
+  /* The image used */
+  background-image: url("../../images/gymphoto2.jpg");
+  /* Full height */
+  height: 100vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.topText p {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.topText h4 {
+  margin-top: 15px;
+  font-weight: bold;
+  color: blue;
+  font-size: 1.8rem;
+}
+
+.listText p{
+  font-size: larger;
+}
+
+.listText h4{
+  font-weight: bold;
+  color: blue;
+  margin-bottom: 20px;
+}

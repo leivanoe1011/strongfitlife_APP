@@ -41,7 +41,7 @@ function Chat () {
 
 
   return (
-    <div className="chatroomPage">
+    <div>
       <ChatPage chatId={chatrooms[0]} />
     </div>
   );

@@ -4,6 +4,10 @@ import React, { useState, useContext, useEffect, useRef } from 'react';
 import ServerServices from "../../Services/ServerService";
 import { withRouter } from "react-router-dom";
 
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormGroup";
 
 import "../Chat/chatroom.css";
 import "../../styles/common.css"
@@ -123,11 +127,16 @@ function Chat (props) {
     
 
       return (
-        <div className="chatroomPage">
-          <div className="chatroomSection">
-            <div className="cardHeader">Chatroom Name</div>
-           
-            <div className="chatroomContent">
+        <div>
+         
+         {/* <Card style={{ width: '18rem' }}> */}
+         <Card style={{ margin : 10}}>
+          {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          <Card.Body>
+            <Card.Title>Chatroom Name</Card.Title>
+            <Card.Text>
+             
+             {/* <div className="chatroomContent"> */}
 
               {/* Need to validate if the object has content */}
               {messages && messages.length > 0
@@ -139,31 +148,29 @@ function Chat (props) {
                       }
                     >
                       {message.name}:
-                    </span>
+                    </span>{" "}
                     {message.message}
                   </div>
                 ))
-                : <div>"No Messages"</div>
+                : <div style={{ height:'18rem'}}>"No Messages"</div>
               }
+            {/* </div> */}
              
-            </div>
-    
-            <div className="chatroomActions">
-              <div>
-                <input
-                  type="text"
+             {/* <div className="chatroomActions"> */}
+             <InputGroup>
+              <FormControl 
+                  as="textarea" 
+                  aria-label="With textarea" 
                   name="message"
                   placeholder="Say something!"
-                  ref={messageRef}
-                />
-              </div>
-              <div>
-                <button className="join" onClick={sendMessage}>
-                  Send
-                </button>
-              </div>
-            </div>
-          </div>
+                  ref={messageRef}/>
+            </InputGroup>
+
+            </Card.Text>
+            <Button variant="primary" onClick={sendMessage}>Send</Button>
+          </Card.Body>
+        </Card>
+
         </div>
       );
 
