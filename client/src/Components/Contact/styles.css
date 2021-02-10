@@ -7,16 +7,20 @@
   margin-top: 100px;
   position: relative;
   right: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 .contactHeader {
+  font-weight: bold;
+  font-size: 2rem;
   position: relative;
   right: 50px;
   z-index: 1;
 }
 
-.contactForm{
-    margin-top: 300px
+.contactForm {
+  margin-top: 300px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -36,7 +40,7 @@
     margin-top: 20px;
   }
 
-  .contactForm{
-      margin-top: 390px;
+  .contactForm {
+    margin-top: 500px;
   }
 }
