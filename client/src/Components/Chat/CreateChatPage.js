@@ -5,6 +5,12 @@ import makeToast from "../../Toaster";
 import { Link } from "react-router-dom";
 import ServerServices from "../../Services/ServerService";
 
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+
+import "./chatroom.css";
+import "../../styles/common.css"
 
 const CreateChat = (props) => {
 
@@ -12,15 +18,16 @@ const CreateChat = (props) => {
 
   const chatroomNameRef = useRef();
 
-  const createChatroom = () => {
+  const createChatroom = (e) => {
+
+      e.preventDefault();
 
       const name = chatroomNameRef.current.value;
 
       ServerServices.CreateChatroom(name)
       .then((response)=>{
-        const responseMessage = response.data.message;
 
-        makeToast("success", responseMessage);
+        makeToast("success", response.message);
 
         chatroomNameRef.current.value = "";
       })
@@ -42,8 +49,6 @@ const CreateChat = (props) => {
 
     ServerServices.GetAllChatrooms()
     .then((response) => {
-        console.log("In Create Chat Page Get all Chatrooms")
-        console.log(response);
         setChatrooms(response);
     })
     .catch((err) => {
@@ -59,21 +64,26 @@ const CreateChat = (props) => {
 
 
   return (
-    <div className="card">
-      <div className="cardHeader">Chatrooms</div>
-      <div className="cardBody">
-        <div className="inputGroup">
-          <label htmlFor="chatroomName">Chatroom Name</label>
-          <input
-            type="text"
-            name="chatroomName"
-            id="chatroomName"
-            placeholder="ChatterBox Nepal"
-            ref={chatroomNameRef}
-          />
-        </div>
-      </div>
-      <button onClick={createChatroom}>Create Chatroom</button>
+    <div>
+      <Card style={{minHeight: "20vh", margin : 25}}>
+        <Card.Header>Client</Card.Header>
+        <Card.Body>
+          <Form>
+            <Form.Group controlId="chatroomName">
+              <Form.Label>Chatroom Name</Form.Label>
+              <Form.Control
+                  type="text"
+                  placeholder="Enter Chatroom Name"
+                  ref={chatroomNameRef}
+                />
+            </Form.Group>
+            <Button variant="primary" type="submit" onClick={createChatroom}>
+                Submit
+              </Button>
+          </Form>
+
+        </Card.Body>
+      </Card>
       <div className="chatrooms">
         {
             chatrooms && chatrooms.length > 0
