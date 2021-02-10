@@ -5,15 +5,9 @@ import PrivateRoute from "../hoc/PrivateRoute";
 import UnPrivateRoute from "../hoc/UnPrivateRoute";
 import LoginPage from "../Components/LoginPage";
 import RegisterPage from "../Components/CreateUser/RegisterPage";
-<<<<<<< HEAD
-import DashboardPage from "../Components/Dashboard/DashboardPage";
-import CreateUserPage from "../Components/CreateUser/CreateUserPage";
-import ChatroomPage from "../Components/Chat/Chatroom";
-=======
 import Dash from "../Components/Dashboard";
 import CreateUserPage from "../Components/Chat/CreateUserPage";
 import ChatroomPage from "../Components/Chat/ChatPage";
->>>>>>> b51cbe87843cd84457de19efa443aa24624b4345
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
 import PersonalTraining from "../Components/PersonalTraining";
