@@ -6,7 +6,6 @@ function Dash() {
     return (
         <>
             <Dashboard />
-            <DashboardBody />
         </>
     )
 }

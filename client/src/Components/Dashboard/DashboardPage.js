@@ -12,29 +12,35 @@ import DashboardBody from "../Dashboard/DashboardBody";
 function Dashboard() {
 
 
-    return(
-        <section>
-                       
-            {/* Chatbox */}
-
-            <Container style={{ margin : 25}}>
-                <Row>
-                    <Col xs={4}>
-                        <Chat/>
-                    </Col>
-                    <Col xs={8}>
-                        <DashboardBody/>
-                    </Col>
-                </Row>
-                
-                <Row>
-                    <Col xs={12}>
-                        <DashboardBody/>
-                    </Col>
-                </Row>
-            </Container>
-            
-        </section>
+    return (
+        <Container>
+            <Row>
+                <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <Chat />
+                </Col>
+                <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <DashboardBody />
+                </Col>
+                <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={12}
+                >
+                    <DashboardBody />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
