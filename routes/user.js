@@ -12,6 +12,7 @@ const userController = require("../controllers/userController");
 // If there is any errors, the Catch Errors object will catch and handle it
 router.post("/login", catchErrors(userController.login));
 router.post("/register", catchErrors(userController.register));
+router.post("/authenticate", catchErrors(userController.authenticate))
  
 
 module.exports = router;

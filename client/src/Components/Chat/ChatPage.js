@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormGroup";
 
-import "../Chat/chatroom.css";
+import "./chatroom.css";
 import "../../styles/common.css"
 
 
@@ -21,11 +21,16 @@ function Chat (props) {
 
     const chatroomId = props.chatId;
 
-    console.log(props.chatId);
+    // const chatroomId = "lkd";
 
-    // const token = localStorage.getItem("CC_Token"); 
+    const chatName = props.chatName;
+    // const chatName = "chat name";
 
+    
     const { socket, userId } = useContext(AuthContext);
+
+    console.log("Socket");
+    console.log(socket);
 
 
     // Instantiate Array
@@ -35,11 +40,19 @@ function Chat (props) {
 
     const [loadedMessages, setLoadedMessages] = useState(false);
 
-    const sendMessage = () => {
+    const sendMessage = (e) => {
 
+      e.preventDefault();
+
+      console.log("In send message function")
+      
       const newMessage = messageRef.current.value
 
+      console.log(newMessage);
+
       if (socket) {
+        console.log("In socket emit");
+
         socket.emit("chatroomMessage", {
           chatroomId,
           message: newMessage,
@@ -107,6 +120,11 @@ function Chat (props) {
 
     useEffect(() => {
         if (socket) {
+          
+          console.log("In join room");
+
+          console.log(socket);
+
           socket.emit("joinRoom", {
             chatroomId,
           });
@@ -133,7 +151,7 @@ function Chat (props) {
          <Card style={{ margin : 10}}>
           {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
           <Card.Body>
-            <Card.Title>Chatroom Name</Card.Title>
+            <Card.Title> {chatName.replaceAll("_"," ")} </Card.Title>
             <Card.Text>
              
              {/* <div className="chatroomContent"> */}

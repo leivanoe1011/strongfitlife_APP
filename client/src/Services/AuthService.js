@@ -20,7 +20,7 @@ const AuthService = {
             body : JSON.stringify( {user} )
         }
 
-        const res = await fetch("/user/login", requestOptions);
+        const res = await fetch("http://localhost:8000/user/login", requestOptions);
         const data = await res.json();      
 
         if (data.status !== 401) {
@@ -44,6 +44,23 @@ const AuthService = {
         const data = await res.json();
         return data;
         
+    },
+
+    authenticate : async (user) => {
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ user })
+        };
+
+        // fetch("",{})
+        const res = await fetch('http://localhost:8000/user/authenticate', requestOptions);
+        const data = await res.json();
+        
+        return data;
+
+
     }
 }
 

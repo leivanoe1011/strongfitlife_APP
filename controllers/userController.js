@@ -5,7 +5,6 @@ const sha256 = require("js-sha256"); // encrypt password
 const jwt = require("jwt-then"); // creates token
 
 
-
 // Have to make the function below ASYNC
 // In order to use AWAIT below. Also it will prevent the Event Handler
 // To run before the code below runs
@@ -69,7 +68,7 @@ exports.register = async (req, res) => {
   
   // The handler is expecting an ASYNC function so we 
   // have to make the funtion below ASYNC
-  exports.login = async (req, res) => {
+exports.login = async (req, res) => {
     
     const { email, password } = req.body.user;
 
@@ -102,5 +101,31 @@ exports.register = async (req, res) => {
       userId: user._id,
     });
   };
+
+
+exports.authenticate = async(req,res) => {
+  
+  console.log("in server Authenticate method");
+
+  let token = req.body.user.token;
+
+  console.log(token);
+
+  const payload = await jwt.verify(token, process.env.SECRET);
+
+  console.log(payload);
+
+  console.log("after payload");
+
+  User.findById({_id : payload.id}, (err, user) => {
+    if(err) return ({message:"Not Authenticated"});
+
+    if(user) {
+      res.status(200)
+      .json({isAuthenticated: true, message: "User Authenticated", role : user.role, userId : user._id})
+    }
+  })
+
+}
   
 
