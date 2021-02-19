@@ -9,7 +9,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormGroup";
 
-import "../Chat/chatroom.css";
+import "./chatroom.css";
 import "../../styles/common.css"
 
 
@@ -17,14 +17,14 @@ import { AuthContext } from "../../Context/AuthContext";
 
 function Chat (props) {
 
-    console.log("In Chat Page js file");
-
     const chatroomId = props.chatId;
 
-    console.log(props.chatId);
+    // const chatroomId = "lkd";
 
-    // const token = localStorage.getItem("CC_Token"); 
+    const chatName = props.chatName;
+    // const chatName = "chat name";
 
+    
     const { socket, userId } = useContext(AuthContext);
 
 
@@ -35,8 +35,10 @@ function Chat (props) {
 
     const [loadedMessages, setLoadedMessages] = useState(false);
 
-    const sendMessage = () => {
+    const sendMessage = (e) => {
 
+      e.preventDefault();
+      
       const newMessage = messageRef.current.value
 
       if (socket) {
@@ -60,22 +62,20 @@ function Chat (props) {
     
          ServerServices.GetChatMessages(chatroomId)
             .then((data) => {
-              console.log("In Get Chat Messages");
-              console.log(data);
     
               const newMessage = [];
     
-             for(var i = 0; i < data.length; i++){
-    
-                var tempObj = {
-                  message : data[i].message,
-                  userId : data[i].user._id,
-                  name : data[i].user.firstName
+              for(var i = 0; i < data.length; i++){
+      
+                  var tempObj = {
+                    message : data[i].message,
+                    userId : data[i].user._id,
+                    name : data[i].user.firstName
+                  }
+      
+                  newMessage.push(tempObj);
+      
                 }
-    
-                newMessage.push(tempObj);
-    
-              }
     
               // Loading the Messages here will trigger the Messages state to
               // load all the messages in the server
@@ -107,6 +107,7 @@ function Chat (props) {
 
     useEffect(() => {
         if (socket) {
+        
           socket.emit("joinRoom", {
             chatroomId,
           });
@@ -133,7 +134,7 @@ function Chat (props) {
          <Card style={{ margin : 10}}>
           {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
           <Card.Body>
-            <Card.Title>Chatroom Name</Card.Title>
+            <Card.Title> {chatName.replaceAll("_"," ")} </Card.Title>
             <Card.Text>
              
              {/* <div className="chatroomContent"> */}

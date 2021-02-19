@@ -16,7 +16,7 @@ const ServerServices = {
         };
 
 
-        const res = await fetch("/messages/getAllMessages", requestOptions);
+        const res = await fetch("http://localhost:8000/messages/getAllMessages", requestOptions);
 
         const data = await res.json();
         
@@ -34,7 +34,7 @@ const ServerServices = {
             body : JSON.stringify( { id : userId })
         }
 
-        const res = await fetch("/chatroom/getChatId", requestOptions);
+        const res = await fetch("http://localhost:8000/chatroom/getChatId", requestOptions);
 
         const data = await res.json();
 
@@ -54,7 +54,7 @@ const ServerServices = {
             body : JSON.stringify( {name})
         }
 
-        const res = await fetch("/chatroom/createChatroom", requestOptions);
+        const res = await fetch("http://localhost:8000/chatroom/createChatroom", requestOptions);
         const data = await res.json();
 
         console.log("After Chatroom created");
@@ -75,7 +75,7 @@ const ServerServices = {
             }
         }
 
-        const res = await fetch("/chatroom/all", requestOptions);
+        const res = await fetch("http://localhost:8000/chatroom/all", requestOptions);
 
         const data = await res.json();      
 

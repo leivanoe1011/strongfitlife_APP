@@ -36,19 +36,18 @@ require("./models/Message");
 // Bring in the Express Server
 const app = require("./app");
 
-
 const PORT = process.env.PORT || 8000;
-// const PORT = 8000;
 
-const http = require("http").Server(app);
+const httpServer = app.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+});
 
 
-const io = require("socket.io")(http, {
+
+const io = require("socket.io")({server : httpServer}, {
   cors: {
-    origin: config.socketIoPort,
-    methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true
+    origin : "http://localhost:3000/",
+    methods: ["GET", "POST"]
   }
 });
 
@@ -62,16 +61,43 @@ const User = mongoose.model("User");
 // and receives as parameters the socket and a function to optionally defer execution 
 // to the next registered middleware
 io.use(async (socket, next) => {
-  console.log("In IO user method");
-  try {
-    const token = socket.handshake.query.token;
-    const payload = await jwt.verify(token, process.env.SECRET);
-    socket.userId = payload.id;
-    next();
-  } catch (err) {}
-})
+
+    console.log("In Socket IO first connections");
+
+  try{
 
 
+        console.log("In socket io validating JWT token");
+
+        // socket.handshake.query currently allows data to be set on "connect"
+        const token = socket.handshake.query.token;
+
+        console.log(token);
+
+        if(token !== undefined) throw "Undefined Token";
+
+        // validate the token is correct
+        const payload = await jwt.verify(token, process.env.SECRET);
+
+        // Get the Mongo DB User ID
+        socket.userId = payload.id;
+
+        // After translating the token we capture 
+        // the Role property that we stored at signin
+        socket.role = payload.role;
+
+
+        // Return the Object with the verification information above
+        next();
+    }
+    catch(err){
+      console.log(err)
+    }
+});
+
+
+// socket io listening 
+// This is the Client Socket
 io.on("connection", async (socket) => {
 
     // When creating the Token, the User ID is loaded within the token
@@ -135,9 +161,6 @@ io.on("connection", async (socket) => {
 // End of io.on
 
 
-http.listen(PORT, ()=>{
-  console.log(`listening on *:${PORT}`);
-});
 
 
   

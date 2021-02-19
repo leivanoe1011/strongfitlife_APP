@@ -3,17 +3,18 @@ import { Switch, Route } from "react-router-dom";
 
 import PrivateRoute from "../hoc/PrivateRoute";
 import UnPrivateRoute from "../hoc/UnPrivateRoute";
+
 import LoginPage from "../Components/LoginPage";
 import RegisterPage from "../Components/CreateUser/RegisterPage";
 import Dash from "../Components/Dashboard";
-import CreateUserPage from "../Components/Chat/CreateUserPage";
-import ChatroomPage from "../Components/Chat/ChatPage";
+import CreateUserPage from "../Components/CreateUser/CreateUserPage";
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
 import PersonalTraining from "../Components/PersonalTraining";
 import Beast from "../Components/Beast";
 import Testimonials from "../Components/Testimonials";
 import Contact from "../Components/Contact";
+
 
 function CustomRoutes() {
   return (
@@ -26,11 +27,12 @@ function CustomRoutes() {
       <Route exact path="/testimonials" render={Testimonials} />
       <UnPrivateRoute exact path="/login" component={LoginPage} />
       <UnPrivateRoute exact path="/register" component={RegisterPage} />
-      <PrivateRoute
+      <Route
         exact
         path="/dashboard"
-        roles={["admin", "user"]}
-        component={Dash}
+        // roles={["admin", "user"]}
+        // component={Dash}
+        render={Dash}
       />
       <PrivateRoute
         exact
@@ -38,12 +40,7 @@ function CustomRoutes() {
         roles={["admin"]}
         component={CreateUserPage}
       />
-      {/* The socket lives within the Auth Context */}
-      <PrivateRoute
-        path="/chatroom/:id"
-        roles={["admin", "user"]}
-        component={ChatroomPage}
-      />
+
     </Switch>
   );
 }
