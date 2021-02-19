@@ -13,6 +13,7 @@ function Header() {
         <Container>
             <Row className="contactRow">
                 <Col
+                    xs={12}
                     sm={12}
                     md={12}
                     lg={6}
@@ -20,6 +21,7 @@ function Header() {
                     <Image src={nowPic} fluid className="nowPic" />
                 </Col>
                 <Col
+                    xs={12}
                     sm={12}
                     md={12}
                     lg={6}
@@ -41,6 +43,7 @@ function Header() {
             </Row>
             <Row className="justify-content-center">
                 <Col
+                    xs={12}
                     sm={12}
                     md={12}
                     lg={12}

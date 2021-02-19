@@ -10,6 +10,7 @@ function Body() {
         <Container>
             <Row className="text-center">
                 <Col
+                    xs={12}
                     sm={12}
                     md={12}
                     lg={12}
@@ -30,6 +31,7 @@ function Body() {
             </Row>
             <Row style={{ marginTop: "50px" }}>
                 <Col
+                    xs={12}
                     sm={6}
                     md={6}
                     lg={6}
@@ -37,6 +39,7 @@ function Body() {
                     <Image src={ropes} fluid />
                 </Col>
                 <Col
+                    xs={12}
                     sm={6}
                     md={6}
                     lg={6}
@@ -78,6 +81,7 @@ function Body() {
             </Row>
             <Row className="text-center">
                 <Col
+                    xs={12}
                     sm={12}
                     md={12}
                     lg={12}
@@ -85,7 +89,6 @@ function Body() {
                     <a href="/freeWorkout" className="btn btn-large bg-primary text-light mt-5">
                         SNAG A FREE WORKOUT SESSION
                     </a>
-
                 </Col>
                 <Col
                     sm={12}
