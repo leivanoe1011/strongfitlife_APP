@@ -7,7 +7,12 @@ import UnPrivateRoute from "../hoc/UnPrivateRoute";
 import LoginPage from "../Components/LoginPage";
 import RegisterPage from "../Components/CreateUser/RegisterPage";
 import Dash from "../Components/Dashboard";
+<<<<<<< HEAD
 import CreateUserPage from "../Components/CreateUser/CreateUserPage";
+=======
+import CreateUserPage from "../Components/Chat/CreateUserPage";
+import ChatroomPage from "../Components/Chat/ChatPage";
+>>>>>>> 8a1531e128cad974631597854e4838c5287777fa
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
 import PersonalTraining from "../Components/PersonalTraining";
