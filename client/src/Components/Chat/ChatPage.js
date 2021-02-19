@@ -21,13 +21,13 @@ import { AuthContext } from "../../Context/AuthContext";
 
 function Chat(props) {
 
+  console.log("In Chat Page js file");
+
   const chatroomId = props.chatId;
 
-  // const chatroomId = "lkd";
+  console.log(props.chatId);
 
-  const chatName = props.chatName;
-  // const chatName = "chat name";
-
+  // const token = localStorage.getItem("CC_Token"); 
 
   const { socket, userId } = useContext(AuthContext);
 
@@ -39,9 +39,7 @@ function Chat(props) {
 
   const [loadedMessages, setLoadedMessages] = useState(false);
 
-  const sendMessage = (e) => {
-
-    e.preventDefault();
+  const sendMessage = () => {
 
     const newMessage = messageRef.current.value
 
@@ -82,35 +80,6 @@ function Chat(props) {
             newMessage.push(tempObj);
 
           }
-        })
-    }
-  })
-
-  // Loading the Messages here will trigger the Messages state to
-  // load all the messages in the server
-  setMessages(newMessage);
-
-  // Initial Load of all messages
-  useEffect(() => {
-
-    if (!loadedMessages && socket) {
-
-      ServerServices.GetChatMessages(chatroomId)
-        .then((data) => {
-
-          const newMessage = [];
-
-          for (var i = 0; i < data.length; i++) {
-
-            var tempObj = {
-              message: data[i].message,
-              userId: data[i].user._id,
-              name: data[i].user.firstName
-            }
-
-            newMessage.push(tempObj);
-
-          }
 
           // Loading the Messages here will trigger the Messages state to
           // load all the messages in the server
@@ -122,36 +91,26 @@ function Chat(props) {
 
         })
     }
-  }, [messages]);
-  //eslint-disable-next-line
+  })
 
 
-
-
+  // Listen to new Messages
   useEffect(() => {
-    if (socket) {
-      socket.emit("joinRoom", {
-        chatroomId,
-      });
 
+
+    if (socket) {
+      socket.on("newMessage", (message) => {
+        const newMessage = [...messages, message];
+        setMessages(newMessage);
+      })
     }
 
-
-    return () => {
-      //Component Unmount
-      if (socket) {
-        socket.emit("leaveRoom", {
-          chatroomId,
-        });
-      }
-    };
     //eslint-disable-next-line
   }, [messages]);
 
 
   useEffect(() => {
     if (socket) {
-
       socket.emit("joinRoom", {
         chatroomId,
       });
@@ -178,7 +137,7 @@ function Chat(props) {
       <Card style={{ margin: 10 }}>
         {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
         <Card.Body>
-          <Card.Title> {chatName.replaceAll("_", " ")} </Card.Title>
+          <Card.Title>Chatroom Name</Card.Title>
           <Card.Text>
 
             {/* <div className="chatroomContent"> */}
@@ -232,6 +191,9 @@ function Chat(props) {
   );
 
 }
+
+
+
 export default withRouter(Chat);
 
 

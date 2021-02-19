@@ -20,34 +20,34 @@ export default ({ children }) => {
 
 
     const authorizeUser = async () => {
-         
+
         // If the token does not currently live in the Local Storage
         // We get a new token
-        const storageToken = localStorage.getItem("CC_Token"); 
+        const storageToken = localStorage.getItem("CC_Token");
 
 
         // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
-        if ((storageToken === undefined) || (storageToken == null) || (storageToken == "undefined")){
+        if ((storageToken === undefined) || (storageToken === null) || (storageToken === "undefined")) {
             console.log("Storage Token is null or undefined")
         }
-        else{
-            
+        else {
+
             await AuthServer
-            .authenticate({token :storageToken })
-            .then((response) =>{
-                                    
-                setRole(response.role);
+                .authenticate({ token: storageToken })
+                .then((response) => {
 
-                setUserId(response.userId);
+                    setRole(response.role);
 
-                setIsAuthenticated(true);
-    
-                setupSocket();
-            })
+                    setUserId(response.userId);
+
+                    setIsAuthenticated(true);
+
+                    setupSocket();
+                })
         }
 
-    } 
+    }
 
 
     // Once the user is logged in, then they go to the Local Storage 
@@ -55,7 +55,7 @@ export default ({ children }) => {
     // This Function is executed when the Setup Socket function is returned
     // from the Login Page
     const setupSocket = async () => {
-                
+
         // const configObj = dotenv.config.Scopes;
         // Might just be able to package Socket IO PORT through Server Host
         if (process.env.NODE_ENV === "production") {
@@ -67,7 +67,7 @@ export default ({ children }) => {
         if (!socket || socket === undefined) {
 
 
-            const storageToken = localStorage.getItem("CC_Token"); 
+            const storageToken = localStorage.getItem("CC_Token");
 
             const storageRole = localStorage.getItem("CC_role");
 
@@ -95,7 +95,7 @@ export default ({ children }) => {
             // This call the IO.ON("connection") function
             // We can attach a listener to fire when we've connected to the server
             newSocket.on("connect", () => {
-                
+
                 makeToast("success", "Socket Connected!");
 
             });
@@ -103,7 +103,7 @@ export default ({ children }) => {
             setSocket(newSocket);
 
             setRole(storageRole);
-                            
+
         }
 
     };
@@ -122,9 +122,9 @@ export default ({ children }) => {
 
     return (
         <div>
-           {/* The variables below will be available to be accessed to all Lower Level components */}
-            <AuthContext.Provider value={{ userId, setUserId, isAuthenticated, setIsAuthenticated, role, setRole, setupSocket, socket}}>
-                { children }
+            {/* The variables below will be available to be accessed to all Lower Level components */}
+            <AuthContext.Provider value={{ userId, setUserId, isAuthenticated, setIsAuthenticated, role, setRole, setupSocket, socket }}>
+                {children}
             </AuthContext.Provider>
         </div>
     )
