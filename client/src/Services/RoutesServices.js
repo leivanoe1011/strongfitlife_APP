@@ -5,9 +5,11 @@ import PrivateRoute from "../hoc/PrivateRoute";
 import UnPrivateRoute from "../hoc/UnPrivateRoute";
 
 import LoginPage from "../Components/LoginPage";
-import RegisterPage from "../Components/CreateUser/RegisterPage";
+import Register from "../Components/CreateUser/RegisterPage";
 import Dash from "../Components/Dashboard";
+
 import CreateUserPage from "../Components/CreateUser/CreateUserPage";
+
 import MainBody from "../Components/Home/MainBody";
 import MyStory from "../Components/MyStory"
 import PersonalTraining from "../Components/PersonalTraining";
@@ -26,19 +28,26 @@ function CustomRoutes() {
       <Route exact path="/unleashBeast" render={Beast} />
       <Route exact path="/testimonials" render={Testimonials} />
       <UnPrivateRoute exact path="/login" component={LoginPage} />
-      <UnPrivateRoute exact path="/register" component={RegisterPage} />
-      <Route
+      <UnPrivateRoute exact path="/register" component={Register} />
+      <PrivateRoute
+
         exact
         path="/dashboard"
         // roles={["admin", "user"]}
         // component={Dash}
         render={Dash}
       />
-      <PrivateRoute
+      {/* <PrivateRoute
         exact
         path="/createuser"
         roles={["admin"]}
-        component={CreateUserPage}
+        component={CreateUser}
+      /> */}
+      {/* The socket lives within the Auth Context */}
+      <PrivateRoute
+        path="/chatroom/:id"
+        roles={["admin", "user"]}
+        component={ChatroomPage}
       />
 
     </Switch>

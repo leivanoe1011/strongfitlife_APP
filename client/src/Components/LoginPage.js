@@ -62,7 +62,7 @@ function LoginPage () {
   return (
     <div style={{minHeight: "100vh"}}>
       <div className="d-flex justify-content-center" style={{ padding: 25 }}>
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "18rem" }} className="shadow">
           <Card.Body>
             <Form>
               <Form.Group controlId="formBasicEmail">
