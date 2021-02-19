@@ -25,11 +25,8 @@ export default ({ children }) => {
         // We get a new token
         const storageToken = localStorage.getItem("CC_Token"); 
 
-        console.log("In setup socket function");
 
-        console.log(socketIoPort);
-
-   // If token exists and Socket is NULL
+        // If token exists and Socket is NULL
         // Need to validate is not "Undefined"
         if ((storageToken === undefined) || (storageToken == null) || (storageToken == "undefined")){
             console.log("Storage Token is null or undefined")
@@ -58,9 +55,7 @@ export default ({ children }) => {
     // This Function is executed when the Setup Socket function is returned
     // from the Login Page
     const setupSocket = async () => {
-        
-        console.log("In SetupSocket");
-        
+                
         // const configObj = dotenv.config.Scopes;
         // Might just be able to package Socket IO PORT through Server Host
         if (process.env.NODE_ENV === "production") {
@@ -71,7 +66,6 @@ export default ({ children }) => {
 
         if (!socket || socket === undefined) {
 
-            console.log("In setting up new Socket");
 
             const storageToken = localStorage.getItem("CC_Token"); 
 
@@ -82,15 +76,11 @@ export default ({ children }) => {
             // This will go to the function in the Server where we are 
             // Initializing the IO middleware
             // Below passing the token in the local Storage to the Server and validate
-            const newSocket = io("http://localhost:8000", {
+            const newSocket = io(socketIoPort, {
                 query: {
-                    token: localStorage.getItem("CC_Token"),
+                    token: storageToken,
                 },
             });
-
-
-            console.log(newSocket);
-
 
             newSocket.on("disconnect", () => {
 

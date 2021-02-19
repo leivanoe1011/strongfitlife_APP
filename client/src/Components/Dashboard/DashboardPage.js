@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 // import Body from "./DashboardBody";
-import Chat from "../ChatOld/Chatroom";
+import Chat from "../Chat/Chatroom";
 import DashboardBody from "../Dashboard/DashboardBody";
 
 function Dashboard() {

@@ -20,10 +20,7 @@ function Chat () {
 
     await ServerServices.GetAllChatrooms()
     .then((response) => {
-        console.log("After getting chatrooms");
 
-        console.log(response);
-        
         setChatrooms(response);
     })
     .catch((err) => {

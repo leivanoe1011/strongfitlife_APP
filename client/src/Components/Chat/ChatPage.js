@@ -17,8 +17,6 @@ import { AuthContext } from "../../Context/AuthContext";
 
 function Chat (props) {
 
-    console.log("In Chat Page js file");
-
     const chatroomId = props.chatId;
 
     // const chatroomId = "lkd";
@@ -28,9 +26,6 @@ function Chat (props) {
 
     
     const { socket, userId } = useContext(AuthContext);
-
-    console.log("Socket");
-    console.log(socket);
 
 
     // Instantiate Array
@@ -43,16 +38,10 @@ function Chat (props) {
     const sendMessage = (e) => {
 
       e.preventDefault();
-
-      console.log("In send message function")
       
       const newMessage = messageRef.current.value
 
-      console.log(newMessage);
-
       if (socket) {
-        console.log("In socket emit");
-
         socket.emit("chatroomMessage", {
           chatroomId,
           message: newMessage,
@@ -73,22 +62,20 @@ function Chat (props) {
     
          ServerServices.GetChatMessages(chatroomId)
             .then((data) => {
-              console.log("In Get Chat Messages");
-              console.log(data);
     
               const newMessage = [];
     
-             for(var i = 0; i < data.length; i++){
-    
-                var tempObj = {
-                  message : data[i].message,
-                  userId : data[i].user._id,
-                  name : data[i].user.firstName
+              for(var i = 0; i < data.length; i++){
+      
+                  var tempObj = {
+                    message : data[i].message,
+                    userId : data[i].user._id,
+                    name : data[i].user.firstName
+                  }
+      
+                  newMessage.push(tempObj);
+      
                 }
-    
-                newMessage.push(tempObj);
-    
-              }
     
               // Loading the Messages here will trigger the Messages state to
               // load all the messages in the server
@@ -120,11 +107,7 @@ function Chat (props) {
 
     useEffect(() => {
         if (socket) {
-          
-          console.log("In join room");
-
-          console.log(socket);
-
+        
           socket.emit("joinRoom", {
             chatroomId,
           });
