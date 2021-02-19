@@ -7,9 +7,8 @@ import makeToast from "../../Toaster";
 
 import ChatPage from "./ChatPage";
 
-import "../Chat/chatroom.css";
+import "./chatroom.css";
 import "../../styles/common.css"
-
 
 // import { AuthContext } from "../../Context/AuthContext";
 
@@ -17,14 +16,11 @@ function Chat () {
 
   const [ chatrooms, setChatrooms ] = useState([]);
 
-  const getChatrooms = () => {
+  const getChatrooms = async ()  => {
 
-    ServerServices.GetAllChatrooms()
+    await ServerServices.GetAllChatrooms()
     .then((response) => {
-        console.log("After getting messages");
 
-        console.log(chatrooms[0])
-        
         setChatrooms(response);
     })
     .catch((err) => {
@@ -34,6 +30,28 @@ function Chat () {
 
   };
 
+
+  const chatroomDoesntExist = () =>{
+    return(
+      <>
+        <div style={{ height:'18rem'}}>No chatroom</div>
+      </>
+    )
+   
+  }
+
+
+  const chatroomExists = () =>{
+    
+    return(
+      <>
+        <ChatPage chatId={chatrooms[0]._id} chatName={chatrooms[0].name}/>
+      </>
+    ) 
+     
+  }
+
+
   useEffect(() => {
     getChatrooms();
     // eslint-disable-next-line
@@ -41,9 +59,13 @@ function Chat () {
 
 
   return (
-    <div>
-      <ChatPage chatId={chatrooms[0]} />
-    </div>
+    <>
+     
+      {chatrooms.length > 0 
+      ? chatroomExists()
+      : chatroomDoesntExist() }
+
+    </>
   );
 
 }

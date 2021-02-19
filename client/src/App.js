@@ -7,11 +7,10 @@ import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer";
 import CustomRoutes from "./Services/RoutesServices";
 
-import history from "./Services/History";
 
 function App() {
   return (
-    <Router history={history}>
+    <Router>
       {/* The Link components in the NavBar must live within the Router component */}
       <NavBar />
       <CustomRoutes/>

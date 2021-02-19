@@ -6,7 +6,13 @@ import { AuthContext } from '../Context/AuthContext';
 const PrivateRoute = ({component : Component, roles, ...rest})=>{
 
 
+    console.log("in Private Route HOC")
+    
     const { isAuthenticated, role} = useContext(AuthContext);
+
+    console.log(role)
+
+    console.log(isAuthenticated);
 
 
     return(
@@ -30,3 +36,4 @@ const PrivateRoute = ({component : Component, roles, ...rest})=>{
 }
 
 export default PrivateRoute;
+
