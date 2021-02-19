@@ -5,7 +5,7 @@ import ServerServices from "../../Services/ServerService";
 import { withRouter } from "react-router-dom";
 
 
-import "../Chat/chatroom.css";
+import "./chatroom.css";
 import "../../styles/common.css"
 
 

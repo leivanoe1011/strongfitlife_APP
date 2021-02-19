@@ -5,19 +5,29 @@ import { AuthContext } from '../Context/AuthContext';
 
 const PrivateRoute = ({component : Component, roles, userRole, ...rest})=>{
 
-    const { isAuthenticated, user} = useContext(AuthContext);
+
+    console.log("In Private Route HOCS");
+
+    const { isAuthenticated, role} = useContext(AuthContext);
+
+    console.log(isAuthenticated)
+
+    console.log(role)
+
 
     return(
         
         // ...rest is equal to path="/route"
         <Route {...rest} render={props =>{
+
             if(!isAuthenticated)
                 return <Redirect to={{ pathname: '/login', 
                                        state : {from : props.location}}}/>
             
-            if(!roles.includes(user.role))
+            if(!roles.includes(role))
                 return <Redirect to={{ pathname: '/', 
                                  state : {from : props.location}}}/>
+                                 
             return <Component {...props}/>
         }}/>
     )

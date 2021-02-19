@@ -13,7 +13,7 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormGroup";
 
-import "../Chat/chatroom.css";
+import "./chatroom.css";
 import "../../styles/common.css"
 
 
@@ -21,15 +21,16 @@ import { AuthContext } from "../../Context/AuthContext";
 
 function Chat(props) {
 
-  console.log("In Chat Page js file");
 
-  const chatroomId = props.chatId;
+    const chatroomId = props.chatId;
 
-  console.log(props.chatId);
+    // const chatroomId = "lkd";
 
-  // const token = localStorage.getItem("CC_Token"); 
+    const chatName = props.chatName;
+    // const chatName = "chat name";
 
-  const { socket, userId } = useContext(AuthContext);
+    
+    const { socket, userId } = useContext(AuthContext);
 
 
   // Instantiate Array
@@ -39,9 +40,12 @@ function Chat(props) {
 
   const [loadedMessages, setLoadedMessages] = useState(false);
 
-  const sendMessage = () => {
 
-    const newMessage = messageRef.current.value
+    const sendMessage = (e) => {
+
+      e.preventDefault();
+      
+      const newMessage = messageRef.current.value
 
     if (socket) {
       socket.emit("chatroomMessage", {
@@ -85,23 +89,38 @@ function Chat(props) {
           // load all the messages in the server
           setMessages(newMessage);
 
+    // Initial Load of all messages
+    useEffect(() => {
 
-          // This will prevent all messages to be reloaded
-          setLoadedMessages(true);
+        if(!loadedMessages && socket) {
+    
+         ServerServices.GetChatMessages(chatroomId)
+            .then((data) => {
+    
+              const newMessage = [];
+    
+              for(var i = 0; i < data.length; i++){
+      
+                  var tempObj = {
+                    message : data[i].message,
+                    userId : data[i].user._id,
+                    name : data[i].user.firstName
+                  }
+      
+                  newMessage.push(tempObj);
+      
+                }
+    
+              // Loading the Messages here will trigger the Messages state to
+              // load all the messages in the server
+              setMessages(newMessage);
 
-        })
-    }
-  })
 
-
-  // Listen to new Messages
-  useEffect(() => {
-
-
-    if (socket) {
-      socket.on("newMessage", (message) => {
-        const newMessage = [...messages, message];
-        setMessages(newMessage);
+              // This will prevent all messages to be reloaded
+              setLoadedMessages(true);
+    
+            })
+        }
       })
     }
 
@@ -127,31 +146,54 @@ function Chat(props) {
       }
     };
     //eslint-disable-next-line
-  }, []);
+
+    }, [messages]);
 
 
-  return (
-    <div>
+    useEffect(() => {
+        if (socket) {
+        
+          socket.emit("joinRoom", {
+            chatroomId,
+          });
+          
+        }
+    
+    
+        return () => {
+          //Component Unmount
+          if (socket) {
+            socket.emit("leaveRoom", {
+              chatroomId,
+            });
+          }
+        };
+        //eslint-disable-next-line
+      }, []);
+    
 
-      {/* <Card style={{ width: '18rem' }}> */}
-      <Card style={{ margin: 10 }}>
-        {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-        <Card.Body>
-          <Card.Title>Chatroom Name</Card.Title>
-          <Card.Text>
+      return (
+        <div>
+         
+         {/* <Card style={{ width: '18rem' }}> */}
+         <Card style={{ margin : 10}}>
+          {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          <Card.Body>
+            <Card.Title> {chatName.replaceAll("_"," ")} </Card.Title>
+            <Card.Text>
+             
+             {/* <div className="chatroomContent"> */}
 
-            {/* <div className="chatroomContent"> */}
-
-            {/* Need to validate if the object has content */}
-            {messages && messages.length > 0
-              ? messages.map((message, i) => (
-                <div key={i} className="message">
-                  <span
-                    className={
-                      userId === message.userId ? "ownMessage" : "otherMessage"
-                    }
-                  >
-                    {message.name}:
+              {/* Need to validate if the object has content */}
+              {messages && messages.length > 0
+                ? messages.map((message, i) => (
+                  <div key={i} className="message">
+                    <span
+                      className={
+                        userId === message.userId ? "ownMessage" : "otherMessage"
+                      }
+                    >
+                      {message.name}:
                     </span>{" "}
                   {message.message}
                 </div>

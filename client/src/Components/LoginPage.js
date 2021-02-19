@@ -22,7 +22,9 @@ function LoginPage () {
   // of the user
   const authContext = useContext(AuthContext);
 
+
   const loginUser = (e) => {
+   
     e.preventDefault();
 
     const user = {
@@ -40,10 +42,9 @@ function LoginPage () {
       // The App JS will get the Token
       localStorage.setItem("CC_Token", token);
 
-      localStorage.setItem("CC_role", role);
+      authContext.setRole(role);
 
-      localStorage.setItem("CC_UserId", userId);
-
+      authContext.setUserId(userId);
 
       // Call the setup Socket function from the APP.JS
       // This will get the Token stored above in the Local Storage
